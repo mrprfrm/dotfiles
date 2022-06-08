@@ -42,7 +42,7 @@ require("nvim-tree").setup {
     git = {
         enable = true,
         ignore = true,
-        internal = 400,
+        timeout = 400,
     },
     update_focused_file = {
         enable = true,

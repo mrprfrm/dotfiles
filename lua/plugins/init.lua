@@ -27,6 +27,11 @@ packer.startup(
             config = require("plugins.lualine"),
         }
 
+        -- Dashboard
+        use {
+            "goolord/alpha-nvim",
+            config = require("plugins.alpha")
+        }
         -- Buffer line
         use {
             "akinsho/bufferline.nvim",
@@ -71,6 +76,10 @@ packer.startup(
             "nvim-telescope/telescope.nvim",
             requires = { "nvim-lua/plenary.nvim" },
             config = require("plugins.telescope"),
+        }
+        use {
+            "ahmedkhalf/project.nvim",
+            config = require("plugins.project"),
         }
 
         -- Zen mode

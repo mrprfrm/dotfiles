@@ -1,4 +1,6 @@
-require("gitsigns").setup({
+local gitsigns = require("gitsigns")
+
+gitsigns.setup {
     signs = {
         add = { hl = 'GitSignsAdd', text = '▎', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
         change = { hl = 'GitSignsChange', text = '▎', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
@@ -38,4 +40,19 @@ require("gitsigns").setup({
     yadm = {
         enable = false
     },
-})
+    on_attach = function(bufnr)
+        -- next hunk mapping
+        vim.keymap.set("n", "]c", function()
+            if vim.wo.diff then return "]c" end
+            vim.schedule(function() gitsigns.next_hunk() end)
+            return "<Ignore>"
+        end, { expr = true })
+
+        -- prev hunk mapping
+        vim.keymap.set("n", "[c", function()
+            if vim.wo.diff then return "[c" end
+            vim.schedule(function() gitsigns.prev_hunk() end)
+            return "<Ignore>"
+        end, { expr = true })
+    end
+}
