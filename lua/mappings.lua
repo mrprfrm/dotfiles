@@ -38,16 +38,16 @@ map("x", "K", ":move '<-2<CR>gv-gv", opts)
 map("v", "p", '"_dP"', opts)
 
 -- File explorer
-local telescope_builtin = require("telescope.builtin")
-local telescope_projects = require("telescope._extensions.projects")
-
-map("n", "<leader>fs", ":Telescope live_grep<CR>", opts)
-map("n", "<leader>fp", ":Telescope projects<CR>", opts)
-vim.keymap.set("n", "<leader>ff", function()
-    telescope_builtin.find_files({
-        hidden = true
-    })
-end)
+-- local telescope_builtin = require("telescope.builtin")
+-- local telescope_projects = require("telescope._extensions.projects")
+--
+-- map("n", "<leader>fs", ":Telescope live_grep<CR>", opts)
+-- map("n", "<leader>fp", ":Telescope projects<CR>", opts)
+-- vim.keymap.set("n", "<leader>ff", function()
+--     telescope_builtin.find_files({
+--         hidden = true
+--     })
+-- end)
 
 -- LSP config
 vim.keymap.set('n', '<Space>e', vim.diagnostic.open_float, opts)

@@ -32,6 +32,13 @@ packer.startup(
             "goolord/alpha-nvim",
             config = require("plugins.alpha")
         }
+
+        -- Commands
+        use {
+            "folke/which-key.nvim",
+            config = require("plugins.whichkey"),
+        }
+
         -- Buffer line
         use {
             "akinsho/bufferline.nvim",
