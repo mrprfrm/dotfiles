@@ -1,5 +1,5 @@
 require("lualine").setup {
-    options = {
-        icon_enabled = true,
-    }
+  options = {
+    icon_enabled = true,
+  }
 }

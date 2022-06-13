@@ -3,9 +3,10 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup {
-    sources = {
-        formatting.black,
-        formatting.isort,
-        diagnostics.flake8,
-    }
+  sources = {
+    formatting.prettier,
+    formatting.black,
+    formatting.isort,
+    diagnostics.flake8,
+  }
 }

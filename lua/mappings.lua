@@ -7,10 +7,10 @@ map("n", "<C-l>", "<C-w>l", opts)
 map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
 
-map("n", "<leader>ee", ":NvimTreeToggle<CR>", opts)
-map("n", "<leader>eq", ":NvimTreeClose<CR>", opts)
-map("n", "<leader>ec", ":NvimTreeFindFile<CR>", opts)
-map("n", "<leader>ef", ":NvimTreeFocus<CR>", opts)
+-- map("n", "<leader>ee", ":NvimTreeToggle<CR>", opts)
+-- map("n", "<leader>eq", ":NvimTreeClose<CR>", opts)
+-- map("n", "<leader>ec", ":NvimTreeFindFile<CR>", opts)
+-- map("n", "<leader>ef", ":NvimTreeFocus<CR>", opts)
 
 -- Resize
 -- map("n", "<C-Up>", ":resize -2 <CR>", opts)
@@ -50,7 +50,7 @@ map("v", "p", '"_dP"', opts)
 -- end)
 
 -- LSP config
-vim.keymap.set('n', '<Space>e', vim.diagnostic.open_float, opts)
+-- vim.keymap.set('n', '<Space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<Space>q', vim.diagnostic.setloclist, opts)
+-- vim.keymap.set('n', '<Space>q', vim.diagnostic.setloclist, opts)
