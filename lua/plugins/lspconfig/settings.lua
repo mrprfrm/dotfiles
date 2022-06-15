@@ -2,7 +2,13 @@ return {
   html = {},
   emmet_ls = {},
   cssls = {},
-  pylsp = {},
+  pyright = {
+    python = {
+      analysis = {
+        typeCheckingMode = "off",
+      },
+    },
+  },
   sumneko_lua = {
     Lua = {
       diagnostics = {

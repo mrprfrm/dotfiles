@@ -91,6 +91,7 @@ local mappings = {
     r = { "<cmd>Telescope lsp_references<CR>", "References" },
     d = { "<cmd>Telescope lsp_definitions<CR>", "Definitions" },
     i = { "<cmd>Telescope lsp_implementations<CR>", "Implementations" },
+    o = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", "Objects" }
   },
 }
 
