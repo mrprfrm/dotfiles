@@ -7,10 +7,10 @@ map("n", "<C-l>", "<C-w>l", opts)
 map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
 
-map("n", "<leader>ee", ":NvimTreeToggle<CR>", opts)
-map("n", "<leader>eq", ":NvimTreeClose<CR>", opts)
-map("n", "<leader>ec", ":NvimTreeFindFile<CR>", opts)
-map("n", "<leader>ef", ":NvimTreeFocus<CR>", opts)
+-- map("n", "<leader>ee", ":NvimTreeToggle<CR>", opts)
+-- map("n", "<leader>eq", ":NvimTreeClose<CR>", opts)
+-- map("n", "<leader>ec", ":NvimTreeFindFile<CR>", opts)
+-- map("n", "<leader>ef", ":NvimTreeFocus<CR>", opts)
 
 -- Resize
 -- map("n", "<C-Up>", ":resize -2 <CR>", opts)
@@ -38,17 +38,19 @@ map("x", "K", ":move '<-2<CR>gv-gv", opts)
 map("v", "p", '"_dP"', opts)
 
 -- File explorer
-vim.keymap.set("n", "<leader>ff", function()
-    require("telescope.builtin").find_files({
-        hidden = true
-    })
-end)
-vim.keymap.set("n", "<leader>fs", function()
-    require("telescope.builtin").live_grep()
-end)
+-- local telescope_builtin = require("telescope.builtin")
+-- local telescope_projects = require("telescope._extensions.projects")
+--
+-- map("n", "<leader>fs", ":Telescope live_grep<CR>", opts)
+-- map("n", "<leader>fp", ":Telescope projects<CR>", opts)
+-- vim.keymap.set("n", "<leader>ff", function()
+--     telescope_builtin.find_files({
+--         hidden = true
+--     })
+-- end)
 
 -- LSP config
-vim.keymap.set('n', '<Space>e', vim.diagnostic.open_float, opts)
+-- vim.keymap.set('n', '<Space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<Space>q', vim.diagnostic.setloclist, opts)
+-- vim.keymap.set('n', '<Space>q', vim.diagnostic.setloclist, opts)

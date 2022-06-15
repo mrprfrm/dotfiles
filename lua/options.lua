@@ -13,10 +13,11 @@ vim.opt.backup = false
 vim.opt.swapfile = false
 vim.opt.updatetime = 300
 vim.opt.writebackup = false
+vim.opt.timeoutlen = 500
 
-vim.opt.smarttab = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+-- vim.opt.smarttab = true
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
 vim.opt.smartindent = true
 vim.opt.expandtab = true
 
