@@ -93,6 +93,12 @@ local mappings = {
     i = { "<cmd>Telescope lsp_implementations<CR>", "Implementations" },
     o = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", "Objects" }
   },
+  t = {
+    name = "Terminal",
+    f = { "<cmd>ToggleTerm direction=float<CR>", "Float" },
+    v = { "<cmd>ToggleTerm size=80 direction=vertical<CR>", "Vertical" },
+    x = { "<cmd>ToggleTerm size=10 direction=horizontal<CR>", "Horisontal" },
+  },
 }
 
 local options = {
