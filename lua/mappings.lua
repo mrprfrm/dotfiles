@@ -7,16 +7,11 @@ map("n", "<C-l>", "<C-w>l", opts)
 map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
 
--- map("n", "<leader>ee", ":NvimTreeToggle<CR>", opts)
--- map("n", "<leader>eq", ":NvimTreeClose<CR>", opts)
--- map("n", "<leader>ec", ":NvimTreeFindFile<CR>", opts)
--- map("n", "<leader>ef", ":NvimTreeFocus<CR>", opts)
-
 -- Resize
--- map("n", "<C-Up>", ":resize -2 <CR>", opts)
--- map("n", "<C-Down>", ":resize +2 <CR>", opts)
--- map("n", "<C-Left>", ":vertical resize -2 <CR>", opts)
--- map("n", "<C-Right>", ":vertical resize -2 <CR>", opts)
+map("n", "<C-S-Up>", ":resize +2 <CR>", opts)
+map("n", "<C-S-Down>", ":resize -2 <CR>", opts)
+map("n", "<C-S-Left>", ":vertical resize +2 <CR>", opts)
+map("n", "<C-S-Right>", ":vertical resize -2 <CR>", opts)
 
 -- Buffers navigation
 map("n", "<S-l>", ":bnext<CR>", opts)
@@ -36,18 +31,6 @@ map("n", "<leader>z", ":ZenMode<cr>", { noremap = true })
 map("x", "J", ":move '>+1<CR>gv-gv", opts)
 map("x", "K", ":move '<-2<CR>gv-gv", opts)
 map("v", "p", '"_dP"', opts)
-
--- File explorer
--- local telescope_builtin = require("telescope.builtin")
--- local telescope_projects = require("telescope._extensions.projects")
---
--- map("n", "<leader>fs", ":Telescope live_grep<CR>", opts)
--- map("n", "<leader>fp", ":Telescope projects<CR>", opts)
--- vim.keymap.set("n", "<leader>ff", function()
---     telescope_builtin.find_files({
---         hidden = true
---     })
--- end)
 
 -- LSP config
 -- vim.keymap.set('n', '<Space>e', vim.diagnostic.open_float, opts)
