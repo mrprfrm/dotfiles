@@ -45,7 +45,7 @@ local show_diacnostics_line = function()
 end
 
 local on_attach = function(client, bufnr)
-  if client.name == "html" or client.name == "pylsp" then
+  if client.name == "html" or client.name == "tsserver" or client.name == "volar" then
     client.resolved_capabilities.document_formatting = false
   end
 

@@ -1,6 +1,8 @@
 return {
   html = {},
   emmet_ls = {},
+  volar = {},
+  tsserver = {},
   cssls = {},
   pyright = {
     python = {
