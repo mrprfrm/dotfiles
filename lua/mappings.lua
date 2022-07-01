@@ -7,11 +7,17 @@ map("n", "<C-l>", "<C-w>l", opts)
 map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
 
--- Resize
-map("n", "<C-S-Up>", ":resize +2 <CR>", opts)
-map("n", "<C-S-Down>", ":resize -2 <CR>", opts)
-map("n", "<C-S-Left>", ":vertical resize +2 <CR>", opts)
-map("n", "<C-S-Right>", ":vertical resize -2 <CR>", opts)
+-- Window move
+map("n", "<C-S-Left>", "<C-w>H", opts)
+map("n", "<C-S-Right>", "<C-w>L", opts)
+map("n", "<C-S-Up>", "<C-w>K", opts)
+map("n", "<C-S-Down>", "<C-w>J", opts)
+
+-- Window Resize
+map("n", "<M-Up>", ":resize +2 <CR>", opts)
+map("n", "<M-Down>", ":resize -2 <CR>", opts)
+map("n", "<M-Left>", ":vertical resize +2 <CR>", opts)
+map("n", "<M-Right>", ":vertical resize -2 <CR>", opts)
 
 -- Buffers navigation
 map("n", "<S-l>", ":bnext<CR>", opts)
