@@ -4,6 +4,7 @@ return {
   volar = {},
   tsserver = {},
   cssls = {},
+  tailwindcss = {},
   pyright = {
     python = {
       analysis = {

@@ -16,8 +16,8 @@ map("n", "<C-S-Down>", "<C-w>J", opts)
 -- Window Resize
 map("n", "<M-Up>", ":resize +2 <CR>", opts)
 map("n", "<M-Down>", ":resize -2 <CR>", opts)
-map("n", "<M-Left>", ":vertical resize +2 <CR>", opts)
-map("n", "<M-Right>", ":vertical resize -2 <CR>", opts)
+map("n", "<M-Right>", ":vertical resize +2 <CR>", opts)
+map("n", "<M-Left>", ":vertical resize -2 <CR>", opts)
 
 -- Buffers navigation
 map("n", "<S-l>", ":bnext<CR>", opts)
