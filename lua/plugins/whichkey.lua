@@ -1,6 +1,9 @@
-local which_key = require("which-key")
+local whichkey_status_ok, whichkey = pcall(require, "which-key")
+if not whichkey_status_ok then
+  return
+end
 
-which_key.setup {
+whichkey.setup {
   plugins = {
     marks = false,
     registers = false,
@@ -57,6 +60,7 @@ local mappings = {
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>bd!<CR>", "Close buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No highlight" },
+  ["s"] = { _toggle_outline, "Toggle symbols" },
 
   e = {
     name = "Explorer",
@@ -96,7 +100,7 @@ local mappings = {
   t = {
     name = "Terminal",
     f = { "<cmd>ToggleTerm direction=float<CR>", "Float" },
-    v = { "<cmd>ToggleTerm size=70 direction=vertical<CR>", "Vertical" },
+    v = { "<cmd>ToggleTerm size=60 direction=vertical<CR>", "Vertical" },
     x = { "<cmd>ToggleTerm size=10 direction=horizontal<CR>", "Horisontal" },
   },
 }
@@ -111,4 +115,4 @@ local options = {
 
 }
 
-which_key.register(mappings, options)
+whichkey.register(mappings, options)

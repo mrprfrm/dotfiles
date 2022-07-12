@@ -1,5 +1,11 @@
-require("toggleterm").setup {
-  size = 20,
+local toggleterm_status_ok, toggleterm = pcall(require, 'toggleterm')
+if not toggleterm_status_ok then
+  return
+end
+
+
+toggleterm.setup {
+  size = 60,
   open_mapping = [[<c-\>]],
   hide_numbers = true,
   shade_filetypes = {},
@@ -8,7 +14,7 @@ require("toggleterm").setup {
   start_in_insert = true,
   insert_mappings = true,
   persist_size = true,
-  direction = "float",
+  direction = "vertical",
   close_on_exit = true,
   shell = vim.o.shell,
   float_opts = {
@@ -37,6 +43,7 @@ local Terminal = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new({
   cmd = "lazygit",
   hidden = true,
+  direction = 'float',
   on_open = function(term)
     vim.api.nvim_buf_del_keymap(term.bufnr, "t", "jk")
     vim.api.nvim_buf_del_keymap(term.bufnr, "t", "<esc>")

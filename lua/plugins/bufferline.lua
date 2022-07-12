@@ -8,7 +8,7 @@ require("bufferline").setup {
     right_trunc_marker = "",
     max_name_length = 30,
     max_prefix_length = 30,
-    diagnostics = "nvim_lsp",
+    diagnostics = false,
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
       if level:match("error") then
         return ""

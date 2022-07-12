@@ -138,10 +138,17 @@ packer.startup(
       "neovim/nvim-lspconfig",
       config = require("plugins.lspconfig")
     }
-
     use {
       "jose-elias-alvarez/null-ls.nvim",
       config = require("plugins.null-ls"),
     }
+
+    use {
+      "simrat39/symbols-outline.nvim",
+      config = require("plugins.symbols-outline")
+    }
+
+    -- Debuging
+    -- use "mfussenegger/nvim-dap"
   end
 )
