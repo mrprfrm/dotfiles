@@ -60,7 +60,6 @@ local mappings = {
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>bd!<CR>", "Close buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No highlight" },
-  ["s"] = { "<cmd>SymbolsOutline<CR>", "Symbols outline" },
 
   e = {
     name = "Explorer",
@@ -70,11 +69,13 @@ local mappings = {
   f = {
     name = "Find",
     f = { "<cmd>Telescope find_files<CR>", "Find files" },
-    s = { "<cmd>Telescope live_grep<CR>", "Find text" },
+    t = { "<cmd>Telescope live_grep<CR>", "Find text" },
     p = { "<cmd>Telescope projects<CR>", "Find projects" },
     h = { "<cmd>Telescope help_tags<CR>", "Help" },
     r = { "<cmd>Telescope oldfiles<CR>", "Recent files" },
     c = { "<cmd>Telescope commands<CR>", "Find commands" },
+    s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", "Symbols" },
+
   },
   g = {
     name = "Git",
@@ -95,7 +96,7 @@ local mappings = {
     r = { "<cmd>Telescope lsp_references<CR>", "References" },
     d = { "<cmd>Telescope lsp_definitions<CR>", "Definitions" },
     i = { "<cmd>Telescope lsp_implementations<CR>", "Implementations" },
-    o = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", "Objects" }
+    s = { "<cmd>SymbolsOutline<CR>", "Symbols" },
   },
   t = {
     name = "Terminal",

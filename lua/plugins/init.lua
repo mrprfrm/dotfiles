@@ -142,7 +142,6 @@ packer.startup(
       "jose-elias-alvarez/null-ls.nvim",
       config = require("plugins.null-ls"),
     }
-
     use {
       "simrat39/symbols-outline.nvim",
       config = require("plugins.symbols-outline")
