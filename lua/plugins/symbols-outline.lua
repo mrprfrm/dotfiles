@@ -6,7 +6,7 @@ end
 -- Possible icons
 --     𝓒 ƒ    ℰ ﰮ    𝓐 # ⊨  ⦿ 🔐 NULL  𝓢 🗲 + 𝙏
 --  ﯟ N P  m       ﰊ ﰉ S N B A O K  NUll     
---  ﯟ    m       ﰉ         ﰊ        
+--  ﯟ    m       ﰊ ﰉ                
 vim.g.symbols_outline = {
   highlight_hovered_item = false,
   auto_preview = false,
@@ -23,15 +23,15 @@ vim.g.symbols_outline = {
     Enum = {icon = "", hl = "TSType"},
     Interface = {icon = "", hl = "TSType"},
     Function = {icon = "", hl = "TSFunction"},
-    Variable = {icon = "ﰉ", hl = "TSConstant"},
-    Constant = {icon = "", hl = "TSConstant"},
+    Variable = {icon = "ﰊ", hl = "TSConstant"},
+    Constant = {icon = "ﰉ", hl = "TSConstant"},
     String = {icon = "", hl = "TSString"},
     Number = {icon = "", hl = "TSNumber"},
     Boolean = {icon = "", hl = "TSBoolean"},
     Array = {icon = "", hl = "TSConstant"},
     Object = {icon = "", hl = "TSType"},
     Key = {icon = "", hl = "TSType"},
-    Null = {icon = "ﰊ", hl = "TSType"},
+    Null = {icon = "", hl = "TSType"},
     EnumMember = {icon = "", hl = "TSField"},
     Struct = {icon = "", hl = "TSType"},
     Event = {icon = "", hl = "TSType"},
