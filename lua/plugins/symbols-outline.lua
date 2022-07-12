@@ -7,7 +7,7 @@ end
 --     𝓒 ƒ    ℰ ﰮ    𝓐 # ⊨  ⦿ 🔐 NULL  𝓢 🗲 + 𝙏
 --  ﯟ N P  m       ﰊ ﰉ S N B A O K  NUll     
 --  ﯟ    m       ﰉ         ﰊ        
-outline.setup{
+vim.g.symbols_outline = {
   highlight_hovered_item = false,
   auto_preview = false,
   symbols = {

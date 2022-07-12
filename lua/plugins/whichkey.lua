@@ -60,7 +60,7 @@ local mappings = {
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>bd!<CR>", "Close buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No highlight" },
-  ["s"] = { _toggle_outline, "Toggle symbols" },
+  ["s"] = { "<cmd>SymbolsOutline<CR>", "Symbols outline" },
 
   e = {
     name = "Explorer",
