@@ -69,7 +69,8 @@ local mappings = {
   f = {
     name = "Find",
     f = { "<cmd>Telescope find_files<CR>", "Find files" },
-    t = { "<cmd>Telescope live_grep<CR>", "Find text" },
+    t = { "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown({ previewer = false }))<CR>", "Find text buffer" },
+    T = { "<cmd>Telescope live_grep<CR>", "Find text workspace" },
     p = { "<cmd>Telescope projects<CR>", "Find projects" },
     h = { "<cmd>Telescope help_tags<CR>", "Help" },
     r = { "<cmd>Telescope oldfiles<CR>", "Recent files" },
