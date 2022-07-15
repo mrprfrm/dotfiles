@@ -6,14 +6,15 @@ end
 -- Possible icons
 --     𝓒 ƒ    ℰ ﰮ    𝓐 # ⊨  ⦿ 🔐 NULL  𝓢 🗲 + 𝙏
 --  ﯟ N P  m       ﰊ ﰉ S N B A O K  NUll     
---  ﯟ    m       ﰊ ﰉ                
+--  ﯟ    m       ﰊ ﰉ                
+--  ﯟ    m       ﰊ ﰉ                
 vim.g.symbols_outline = {
   highlight_hovered_item = false,
   auto_preview = false,
   symbols = {
     File = {icon = "", hl = "TSURI"},
     Module = {icon = "ﯟ", hl = "TSNamespace"},
-    Namespace = {icon = "", hl = "TSNamespace"},
+    Namespace = {icon = "", hl = "TSNamespace"},
     Package = {icon = "", hl = "TSNamespace"},
     Class = {icon = "", hl = "TSType"},
     Method = {icon = "m", hl = "TSMethod"},

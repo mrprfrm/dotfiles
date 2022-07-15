@@ -144,10 +144,16 @@ packer.startup(
     }
     use {
       "simrat39/symbols-outline.nvim",
-      config = require("plugins.symbols-outline")
+      config = require("plugins.symbols-outline"),
     }
 
     -- Debuging
-    -- use "mfussenegger/nvim-dap"
+    use "mfussenegger/nvim-dap"
+    
+    use {
+      "rcarriga/nvim-dap-ui",
+      requires = { "mfussenegger/nvim-dap" },
+      config = require("plugins.dapui"),
+    }
   end
 )

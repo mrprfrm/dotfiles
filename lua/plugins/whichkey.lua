@@ -3,6 +3,11 @@ if not whichkey_status_ok then
   return
 end
 
+local dapui_status_ok, dapui = pcall(require, "dapui")
+if not dapui_status_ok then
+  return
+end
+
 whichkey.setup {
   plugins = {
     marks = false,
@@ -105,6 +110,10 @@ local mappings = {
     v = { "<cmd>ToggleTerm size=60 direction=vertical<CR>", "Vertical" },
     x = { "<cmd>ToggleTerm size=10 direction=horizontal<CR>", "Horisontal" },
   },
+  d = {
+    name = "Debugger",
+    d = { function() dapui.toggle("sidebar") end, "Dap" }
+  }
 }
 
 local options = {
