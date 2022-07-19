@@ -2,6 +2,9 @@ local nvim_tree_config = require("nvim-tree.config")
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 --   ﭜ    ﭧ         ﮁ
+--  S  ➜  U ◌
+--       
+--    ➜  ﭜ 
 require("nvim-tree").setup {
   -- cwd - current working directory
   update_cwd = true,
@@ -19,13 +22,13 @@ require("nvim-tree").setup {
     icons = {
       glyphs = {
         git = {
-          unstaged = "",
+          unstaged = "",
           staged = "",
-          unmerged = "",
-          renamed = "",
-          deleted = "",
-          untracked = "",
-          ignored = "",
+          unmerged = "",
+          renamed = "➜",
+          deleted = "",
+          untracked = "ﭜ",
+          ignored = "",
         }
       }
     }
@@ -54,6 +57,5 @@ require("nvim-tree").setup {
   },
   filesystem_watchers = {
     enable = true,
-    interval = 300,
   },
 }

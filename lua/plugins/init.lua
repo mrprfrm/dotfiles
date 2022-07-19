@@ -51,6 +51,7 @@ packer.startup(
       },
       config = require("plugins.bufferline"),
     }
+    use "moll/vim-bbye"
 
     -- Terminal
     use {
@@ -148,12 +149,18 @@ packer.startup(
     }
 
     -- Debuging
-    use "mfussenegger/nvim-dap"
-    
+    use {
+      "mfussenegger/nvim-dap",
+      config = require("plugins.dap"),
+    }
     use {
       "rcarriga/nvim-dap-ui",
       requires = { "mfussenegger/nvim-dap" },
       config = require("plugins.dapui"),
+    }
+    use {
+      "theHamsta/nvim-dap-virtual-text",
+      config = require("plugins.dap-virtualtext")
     }
   end
 )

@@ -3,11 +3,6 @@ if not whichkey_status_ok then
   return
 end
 
-local dapui_status_ok, dapui = pcall(require, "dapui")
-if not dapui_status_ok then
-  return
-end
-
 whichkey.setup {
   plugins = {
     marks = false,
@@ -63,7 +58,7 @@ local mappings = {
   ["a"] = { "<cmd>Alpha<CR>", "Alpha" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
-  ["c"] = { "<cmd>bd!<CR>", "Close buffer" },
+  ["c"] = { "<cmd>Bdelete!<CR>", "Close buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No highlight" },
 
   e = {
@@ -71,6 +66,7 @@ local mappings = {
     e = { "<cmd>NvimTreeToggle<cr>", "Toggle explorer" },
     f = { "<cmd>NvimTreeFindFile<cr>", "Find current file" },
   },
+
   f = {
     name = "Find",
     f = { "<cmd>Telescope find_files<CR>", "Find files" },
@@ -81,8 +77,8 @@ local mappings = {
     r = { "<cmd>Telescope oldfiles<CR>", "Recent files" },
     c = { "<cmd>Telescope commands<CR>", "Find commands" },
     s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", "Symbols" },
-
   },
+
   g = {
     name = "Git",
     g = { "<cmd>lua LAZYGIT_TOGGLE()<CR>", "Lazygit" },
@@ -97,6 +93,7 @@ local mappings = {
     u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Unstage hunk" },
     d = { "<cmd>Gitsigns diffthis<cr>", "Diff" },
   },
+
   l = {
     name = "LSP",
     r = { "<cmd>Telescope lsp_references<CR>", "References" },
@@ -104,15 +101,32 @@ local mappings = {
     i = { "<cmd>Telescope lsp_implementations<CR>", "Implementations" },
     s = { "<cmd>SymbolsOutline<CR>", "Symbols" },
   },
+
   t = {
     name = "Terminal",
     f = { "<cmd>ToggleTerm direction=float<CR>", "Float" },
     v = { "<cmd>ToggleTerm size=60 direction=vertical<CR>", "Vertical" },
     x = { "<cmd>ToggleTerm size=10 direction=horizontal<CR>", "Horisontal" },
   },
+
   d = {
     name = "Debugger",
-    d = { function() dapui.toggle("sidebar") end, "Dap" }
+    a = { "<cmd>lua ATTACH_TO_DEBUGGER<cr>", "Attach" },
+    d = { "<cmd>lua require'dapui'.toggle()<cr>", "Dap" },
+    R = { "<cmd>lua require'dap'.repl.toggle({}, '10split')<cr>", "Repl" },
+    s = { "<cmd>lua require'dap'.step_into()<cr>", "Step into" },
+    n = { "<cmd>lua require'dap'.step_over()<cr>", "Step over" },
+    r = { "<cmd>lua require'dap'.step_out()<cr>", "Step out" },
+    c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+    q = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate" },
+    U = { "<cmd>lua require'dap'.up()<cr>", "Up" },
+    D = { "<cmd>lua require'dap'.down()<cr>", "Down" },
+    -- b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
+    -- B = {
+    --   "<cmd>lua require'dap'.toggle_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>",
+    --   "Conditional breakpoint"
+    -- },
+    -- C= { "<cmd>lua require'dap'.clear_breakpoints()<cr>", "Clear breakpoints" },
   }
 }
 
