@@ -30,6 +30,10 @@ packer.startup(
       },
       config = require("plugins.lualine"),
     }
+    use {
+      "stevearc/dressing.nvim",
+      config = require("plugins.dressing")
+    }
 
     -- Dashboard
     use {
