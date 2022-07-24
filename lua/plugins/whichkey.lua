@@ -111,7 +111,7 @@ local mappings = {
 
   d = {
     name = "Debugger",
-    a = { "<cmd>lua ATTACH_TO_DEBUGGER<cr>", "Attach" },
+    a = { "<cmd>lua ATTACH_TO_DEBUGGER()<cr>", "Attach" },
     d = { "<cmd>lua require'dapui'.toggle()<cr>", "Dap" },
     R = { "<cmd>lua require'dap'.repl.toggle({}, '10split')<cr>", "Repl" },
     s = { "<cmd>lua require'dap'.step_into()<cr>", "Step into" },

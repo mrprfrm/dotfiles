@@ -10,7 +10,6 @@ dap.adapters.node2 = {
 }
 
 function ATTACH_TO_DEBUGGER()
-  local cwd = vim.fn.getcwd()
   dap.run {
     type = "node2",
     request = "attach",
