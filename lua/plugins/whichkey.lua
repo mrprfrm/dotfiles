@@ -77,6 +77,7 @@ local mappings = {
     r = { "<cmd>Telescope oldfiles<CR>", "Recent files" },
     c = { "<cmd>Telescope commands<CR>", "Find commands" },
     s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", "Symbols" },
+    k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
   },
 
   g = {
