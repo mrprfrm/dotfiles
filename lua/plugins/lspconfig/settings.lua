@@ -2,6 +2,7 @@ return {
   html = {},
   emmet_ls = {},
   volar = {},
+  eslint = {},
   tsserver = {},
   cssls = {},
   tailwindcss = {},
