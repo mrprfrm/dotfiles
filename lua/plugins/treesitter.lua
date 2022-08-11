@@ -5,6 +5,6 @@ require("nvim-treesitter.configs").setup {
   autotag = { enable = true },
   indent = { enable = true },
   ensure_installed = {
-    "html", "css", "scss", "javascript", "lua", "python", "toml", "yaml", "json"
+    "html", "css", "scss", "javascript", "lua", "python", "toml", "yaml", "json", "comment"
   }
 }
