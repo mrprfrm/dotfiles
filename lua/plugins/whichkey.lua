@@ -75,9 +75,10 @@ local mappings = {
     p = { "<cmd>Telescope projects<CR>", "Find projects" },
     h = { "<cmd>Telescope help_tags<CR>", "Help" },
     r = { "<cmd>Telescope oldfiles<CR>", "Recent files" },
-    c = { "<cmd>Telescope commands<CR>", "Find commands" },
+    C = { "<cmd>Telescope commands<CR>", "Find commands" },
     s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", "Symbols" },
     k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
+    c = { "<cmd>TodoTelescope<CR>", "Find comments" }
   },
 
   g = {
@@ -101,6 +102,7 @@ local mappings = {
     d = { "<cmd>Telescope lsp_definitions<CR>", "Definitions" },
     i = { "<cmd>Telescope lsp_implementations<CR>", "Implementations" },
     s = { "<cmd>SymbolsOutline<CR>", "Symbols" },
+    l = { "<cmd>TroubleToggle<CR>", "Toggle troubles" }
   },
 
   t = {

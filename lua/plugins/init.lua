@@ -97,6 +97,16 @@ packer.startup(
       "ahmedkhalf/project.nvim",
       config = require("plugins.project"),
     }
+    use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = require("plugins.trouble")
+    }
+    use {
+      "folke/todo-comments.nvim",
+      requires = { "nvim-lua/plenary.nvim" },
+      config = require("plugins.todo-comments")
+    }
 
     -- Zen mode
     use {
