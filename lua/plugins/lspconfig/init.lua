@@ -40,13 +40,13 @@ local show_ws_folders = function()
   )
 end
 
-local show_diacnostics_line = function()
-  vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })
+local show_diagnostics_line = function()
+  vim.diagnostic.open_float()
 end
 
 local on_attach = function(client, bufnr)
   if client.name == "html" or client.name == "tsserver" or client.name == "volar" then
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
   end
 
   -- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v.lua.vim.lsp.omnifunc")
@@ -54,7 +54,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-  vim.keymap.set("n", "gl", show_diacnostics_line, opts)
+  vim.keymap.set("n", "gl", show_diagnostics_line, opts)
   vim.keymap.set("n", "gk", vim.lsp.buf.signature_help, opts)
 
   vim.keymap.set("n", "<space>r", vim.lsp.buf.rename, opts)
@@ -68,15 +68,13 @@ local on_attach = function(client, bufnr)
   -- vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, opts)
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 local config = require("plugins.lspconfig.settings")
 for lsp, settings in pairs(config) do
   require("lspconfig")[lsp].setup {
     on_attach = on_attach,
-    capabilities = cmp_nvim_lsp.update_capabilities(capabilities),
+    capabilities = cmp_nvim_lsp.default_capabilities(),
     settings = settings,
   }
 end

@@ -43,7 +43,7 @@ local Terminal = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new({
   cmd = "lazygit",
   hidden = true,
-  direction = 'float',
+  direction = "float",
   on_open = function(term)
     vim.api.nvim_buf_del_keymap(term.bufnr, "t", "jk")
     vim.api.nvim_buf_del_keymap(term.bufnr, "t", "<esc>")
