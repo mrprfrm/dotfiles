@@ -64,7 +64,7 @@ local mappings = {
   e = {
     name = "Explorer",
     e = { "<cmd>NvimTreeToggle<cr>", "Toggle explorer" },
-    f = { "<cmd>NvimTreeFindFile<cr>", "Find current file" },
+    c = { "<cmd>NvimTreeFindFile<cr>", "Find current file" },
   },
 
   f = {

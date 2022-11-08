@@ -8,7 +8,7 @@ end
 --  ﯟ N P  m       ﰊ ﰉ S N B A O K  NUll     
 --  ﯟ    m       ﰊ ﰉ                
 --  ﯟ    m       ﰊ ﰉ                
-vim.g.symbols_outline = {
+outline.setup {
   highlight_hovered_item = false,
   auto_preview = false,
   symbols = {
