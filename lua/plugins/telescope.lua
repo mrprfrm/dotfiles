@@ -1,12 +1,15 @@
-local telescope = require("telescope")
-local utils = require("telescope.utils")
-local actions = require("telescope.actions")
-local action_state = require("telescope.actions.state")
-local transform_mod = require("telescope.actions.mt").transform_mod
+local telescope_status_ok, telescope = pcall(require, "telescope")
+local utils_status_ok, utils = pcall(require, "telescope.utils")
+local actions_status_ok, actions = pcall(require, "telescope.actions")
+local action_state_status_ok, action_state = pcall(require, "telescope.actions.state")
+local mt_status_ok, mt = pcall(require, "telescope.actions.mt")
+if not (telescope_status_ok and utils_status_ok and actions_status_ok and action_state_status_ok and action_state_status_ok and mt_status_ok) then
+  return
+end
 
 -- vim.cmd("command! -nargs=+ Silent silent . <q-args> | redraw")
 
-local custom_actions = transform_mod({
+local custom_actions = mt.transform_mod({
   system_nvim_open = function(prompt_bufnr)
     local entry = action_state.get_selected_entry()
 
