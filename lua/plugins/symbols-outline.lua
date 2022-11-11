@@ -9,7 +9,9 @@ end
 --  ﯟ    m       ﰊ ﰉ                
 --  ﯟ    m       ﰊ ﰉ                
 outline.setup {
+  auto_close = true,
   highlight_hovered_item = false,
+  autofold_depth = 1,
   auto_preview = false,
   symbols = {
     File = {icon = "", hl = "TSURI"},

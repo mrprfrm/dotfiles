@@ -10,6 +10,6 @@ treesitter.setup {
   autotag = { enable = true },
   indent = { enable = true },
   ensure_installed = {
-    "html", "css", "scss", "javascript", "lua", "python", "toml", "yaml", "json", "comment"
+    "html", "css", "scss", "javascript", "lua", "python", "vue", "toml", "yaml", "json", "comment"
   }
 }

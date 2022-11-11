@@ -72,6 +72,10 @@ packer.startup(
       "numToStr/Comment.nvim",
       config = require("plugins.comment"),
     }
+    use {
+      "anuvyklack/pretty-fold.nvim",
+      config= require("plugins.pretty-fold")
+    }
 
     -- Git
     use {
