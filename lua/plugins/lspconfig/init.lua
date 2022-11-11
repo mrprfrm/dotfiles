@@ -68,7 +68,10 @@ local on_attach = function(client, bufnr)
   -- vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, opts)
 end
 
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local cmp_nvim_lsp_status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not cmp_nvim_lsp_status_ok then 
+  return
+end
 
 local config = require("plugins.lspconfig.settings")
 for lsp, settings in pairs(config) do

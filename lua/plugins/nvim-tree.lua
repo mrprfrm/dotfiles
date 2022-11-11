@@ -1,3 +1,8 @@
+local nvim_tree_status_ok, nvim_tree = pcall(require, "nvim-tree")
+if not nvim_tree_status_ok then
+  return
+end
+
 local nvim_tree_config = require("nvim-tree.config")
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
@@ -5,7 +10,7 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 --  S  ➜  U ◌
 --       
 --    ➜  ﭜ 
-require("nvim-tree").setup {
+nvim_tree.setup {
   -- cwd - current working directory
   update_cwd = true,
   open_on_tab = false,
