@@ -75,9 +75,12 @@ end
 
 local config = require("plugins.lspconfig.settings")
 for lsp, settings in pairs(config) do
-  require("lspconfig")[lsp].setup {
+  local opts = {
     on_attach = on_attach,
     capabilities = cmp_nvim_lsp.default_capabilities(),
-    settings = settings,
   }
+  for name, value in pairs(settings) do
+    opts[name] = value
+  end
+  require("lspconfig")[lsp].setup(opts)
 end

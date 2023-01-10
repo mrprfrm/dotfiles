@@ -1,3 +1,5 @@
+local lspconfig = require("lspconfig")
+
 return {
   html = {},
   emmet_ls = {},
@@ -7,21 +9,26 @@ return {
   cssls = {},
   tailwindcss = {},
   pyright = {
-    python = {
-      analysis = {
-        typeCheckingMode = "off",
+    root_dir = lspconfig.util.root_pattern("WORKSPACE", "pyproject.toml"),
+    settings = {
+      python = {
+        analysis = {
+          typeCheckingMode = "off",
+        },
       },
     },
   },
   sumneko_lua = {
-    Lua = {
-      diagnostics = {
-        globals = { "vim" },
-      },
-      workspace = {
-        -- [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-        -- [vim.fn.stdpath("config") .. "/lua"] = true,
-        library = vim.api.nvim_get_runtime_file("", true),
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { "vim" },
+        },
+        workspace = {
+          -- [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+          -- [vim.fn.stdpath("config") .. "/lua"] = true,
+          library = vim.api.nvim_get_runtime_file("", true),
+        },
       },
     },
   },
