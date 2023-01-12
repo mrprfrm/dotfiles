@@ -3,4 +3,4 @@ if not virtualtext_status_ok then
   return
 end
 
-virtualtext.setup()
+virtualtext.setup {}
