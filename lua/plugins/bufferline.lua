@@ -8,13 +8,14 @@ require("bufferline").setup {
     right_trunc_marker = "",
     max_name_length = 30,
     max_prefix_length = 30,
-    diagnostics = false,
+    diagnostics = "nvim_lsp",
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
       if level:match("error") then
         return ""
       elseif level:match("warn") then
         return ""
       end
+      return ""
     end,
     diagnostics_update_in_insert = false,
     offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
