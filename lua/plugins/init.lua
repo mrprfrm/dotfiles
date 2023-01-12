@@ -8,19 +8,27 @@ packer.init {
   }
 }
 
+local function require_config(config_name)
+  local config_ok, _ = pcall(require, config_name)
+  if not config_ok then
+    print("Plugin " .. config_name .. " is not awailable")
+  end
+end
+
 packer.startup(
   function(use)
     use "wbthomason/packer.nvim"
 
     -- Gui enhancements
     use "nvim-lua/popup.nvim"
+    use "kyazdani42/nvim-web-devicons"
     use {
       "lukas-reineke/indent-blankline.nvim",
-      config = require("plugins.indentblankline"),
+      config = require_config("plugins.indentblankline"),
     }
     use {
       "EdenEast/nightfox.nvim",
-      config = require("plugins.nightfox"),
+      config = require_config("plugins.nightfox"),
     }
     use {
       "nvim-lualine/lualine.nvim",
@@ -28,23 +36,23 @@ packer.startup(
         "kyazdani42/nvim-web-devicons",
         opt = true
       },
-      config = require("plugins.lualine"),
+      config = require_config("plugins.lualine"),
     }
     use {
       "stevearc/dressing.nvim",
-      config = require("plugins.dressing")
+      config = require_config("plugins.dressing"),
     }
 
     -- Dashboard
     use {
       "goolord/alpha-nvim",
-      config = require("plugins.alpha")
+      config = require_config("plugins.alpha"),
     }
 
     -- Commands
     use {
       "folke/which-key.nvim",
-      config = require("plugins.whichkey"),
+      config = require_config("plugins.whichkey"),
     }
 
     -- Buffer line
@@ -53,34 +61,34 @@ packer.startup(
       requires = {
         "kyazdani42/nvim-web-devicons",
       },
-      config = require("plugins.bufferline"),
+      config = require_config("plugins.bufferline"),
     }
     use "moll/vim-bbye"
 
     -- Terminal
     use {
       "akinsho/toggleterm.nvim",
-      config = require("plugins.toggleterm"),
+      config = require_config("plugins.toggleterm"),
     }
 
     -- Formatters
     use {
       "windwp/nvim-autopairs",
-      config = require("plugins.autopairs"),
+      config = require_config("plugins.autopairs"),
     }
     use {
       "numToStr/Comment.nvim",
-      config = require("plugins.comment"),
+      config = require_config("plugins.comment"),
     }
     use {
       "anuvyklack/pretty-fold.nvim",
-      config= require("plugins.pretty-fold")
+      config = require_config("plugins.pretty-fold"),
     }
 
     -- Git
     use {
       "lewis6991/gitsigns.nvim",
-      config = require("plugins.gitsigns")
+      config = require_config("plugins.gitsigns"),
     }
 
     -- Navigation
@@ -90,42 +98,42 @@ packer.startup(
       requires = {
         "kyazdani42/nvim-web-devicons"
       },
-      config = require("plugins.nvim-tree"),
+      config = require_config("plugins.nvim-tree"),
     }
     use {
       "nvim-telescope/telescope.nvim",
       requires = { "nvim-lua/plenary.nvim" },
-      config = require("plugins.telescope"),
+      config = require_config("plugins.telescope"),
     }
     use {
       "ahmedkhalf/project.nvim",
-      config = require("plugins.project"),
+      config = require_config("plugins.project"),
     }
     use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
-      config = require("plugins.trouble")
+      config = require_config("plugins.trouble"),
     }
     use {
       "folke/todo-comments.nvim",
       requires = { "nvim-lua/plenary.nvim" },
-      config = require("plugins.todo-comments")
+      config = require_config("plugins.todo-comments"),
     }
 
     -- Zen mode
     use {
       "folke/zen-mode.nvim",
-      config = require("plugins.zenmode"),
+      config = require_config("plugins.zenmode"),
     }
     use {
       "folke/twilight.nvim",
-      config = require("plugins.twilight"),
+      config = require_config("plugins.twilight"),
     }
 
     -- Syntax analysys
     use {
       "nvim-treesitter/nvim-treesitter",
-      config = require("plugins.treesitter"),
+      config = require_config("plugins.treesitter"),
       run = ":TSUpdate",
     }
     use "windwp/nvim-ts-autotag"
@@ -135,7 +143,7 @@ packer.startup(
     -- Auto complete
     use {
       "hrsh7th/nvim-cmp",
-      config = require("plugins.cmp")
+      config = require_config("plugins.cmp"),
     }
     use "hrsh7th/cmp-buffer"
     use "hrsh7th/cmp-path"
@@ -151,34 +159,34 @@ packer.startup(
     -- LSP
     use {
       "williamboman/nvim-lsp-installer",
-      config = require("plugins.lspinstaller")
+      config = require_config("plugins.lspinstaller"),
     }
     use {
       "neovim/nvim-lspconfig",
-      config = require("plugins.lspconfig")
+      config = require_config("plugins.lspconfig"),
     }
     use {
       "jose-elias-alvarez/null-ls.nvim",
-      config = require("plugins.null-ls"),
+      config = require_config("plugins.null-ls"),
     }
     use {
       "simrat39/symbols-outline.nvim",
-      config = require("plugins.symbols-outline"),
+      config = require_config("plugins.symbols-outline"),
     }
 
     -- Debuging
     use {
       "mfussenegger/nvim-dap",
-      config = require("plugins.dap"),
+      config = require_config("plugins.dap"),
     }
     use {
       "rcarriga/nvim-dap-ui",
       requires = { "mfussenegger/nvim-dap" },
-      config = require("plugins.dapui"),
+      config = require_config("plugins.dapui"),
     }
     use {
       "theHamsta/nvim-dap-virtual-text",
-      config = require("plugins.dap-virtualtext")
+      config = require_config("plugins.dap-virtualtext"),
     }
   end
 )
