@@ -45,7 +45,7 @@ local show_diagnostics_line = function()
 end
 
 local on_attach = function(client, bufnr)
-  if client.name == "html" or client.name == "tsserver" or client.name == "volar" then
+  if client.name == "html" or client.name == "tsserver" then
     client.server_capabilities.documentFormattingProvider = false
   end
 

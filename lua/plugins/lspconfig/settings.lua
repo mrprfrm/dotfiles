@@ -3,7 +3,9 @@ local lspconfig = require("lspconfig")
 return {
   html = {},
   emmet_ls = {},
-  volar = {},
+  volar = {
+    root_dir = lspconfig.util.root_pattern('package.json', 'vue.config.js'),
+  },
   eslint = {},
   tsserver = {},
   cssls = {},
