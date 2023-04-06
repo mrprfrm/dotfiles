@@ -172,6 +172,10 @@ packer.startup(function(use)
 		"simrat39/symbols-outline.nvim",
 		config = require_config("plugins.symbols-outline"),
 	})
+	use({
+		"github/copilot.vim",
+		config = require_config("plugins.copilot"),
+	})
 
 	-- Debuging
 	use({
