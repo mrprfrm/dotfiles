@@ -78,8 +78,10 @@ for lsp, settings in pairs(config) do
 		on_attach = on_attach,
 		capabilities = cmp_nvim_lsp.default_capabilities(),
 	}
+
 	for name, value in pairs(settings) do
 		opts[name] = value
 	end
+
 	require("lspconfig")[lsp].setup(opts)
 end
