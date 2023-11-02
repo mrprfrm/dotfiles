@@ -24,7 +24,7 @@ nvim_tree.setup({
 					unmerged = "",
 					renamed = "➜",
 					deleted = "",
-					untracked = "ﭜ",
+					untracked = "󰙝",
 					ignored = "",
 				},
 			},
@@ -33,9 +33,9 @@ nvim_tree.setup({
 	diagnostics = {
 		enable = true,
 		icons = {
-			hint = "",
+			hint = "󰌵",
 			info = "",
-			error = "",
+			error = "󰅙",
 			warning = "",
 		},
 	},
