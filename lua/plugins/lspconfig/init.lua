@@ -64,7 +64,7 @@ local on_attach = function(client, bufnr)
 	-- vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
 	-- vim.keymap.set("n", "<space>wl", show_ws_folders, opts)
 	-- vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
-	-- vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, opts)
+	vim.keymap.set("n", "ca", vim.lsp.buf.code_action, opts)
 end
 
 local cmp_nvim_lsp_status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
