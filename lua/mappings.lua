@@ -31,7 +31,7 @@ map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
 
 -- Zen mode
-map("n", "<leader>z", ":ZenMode<cr>", { noremap = true })
+-- map("n", "<leader>z", ":ZenMode<cr>", { noremap = true })
 
 -- Text move
 map("x", "J", ":move '>+1<CR>gv-gv", opts)

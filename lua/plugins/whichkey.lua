@@ -60,6 +60,7 @@ local mappings = {
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No highlight" },
+	["z"] = { "<cmd>ZenMode<CR>", "Zen" },
 	e = {
 		name = "Explorer",
 		e = { "<cmd>NvimTreeToggle<cr>", "Toggle explorer" },
