@@ -18,7 +18,10 @@ null_ls.setup({
 		diagnostics.flake8,
 		-- lua linters
 		formatting.stylua,
-		diagnostics.luacheck,
+		diagnostics.luacheck.with({
+			-- luacheck options
+			args = { "--globals", "vim" },
+		}),
 		-- rust linters
 		diagnostics.ltrs,
 		formatting.rustfmt,
