@@ -158,12 +158,17 @@ packer.startup(function(use)
 
 	-- LSP
 	use({
-		"williamboman/nvim-lsp-installer",
-		config = require_config("plugins.lspinstaller"),
+		"williamboman/mason.nvim",
+		config = require_config("plugins.mason"),
 	})
 	use({
 		"neovim/nvim-lspconfig",
 		config = require_config("plugins.lspconfig"),
+	})
+	use({
+		"williamboman/mason-lspconfig.nvim",
+		requires = { "neovim/nvim-lspconfig", "williamboman/mason.nvim" },
+		config = require_config("plugins.mason-lspconfig"),
 	})
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
