@@ -119,6 +119,9 @@ packer.startup(function(use)
 		requires = { "nvim-lua/plenary.nvim" },
 		config = require_config("plugins.todo-comments"),
 	})
+	use({
+		"nvim-telescope/telescope-live-grep-args.nvim",
+	})
 
 	-- Zen mode
 	use({
