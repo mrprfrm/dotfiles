@@ -132,7 +132,7 @@ local mappings = {
 	},
 	m = {
 		name = "Marks",
-		m = { "<cmd>lua TOGGLE_HARPOON_MENU()<cr>", "Marks menu" },
+		m = { "<cmd>Telescope harpoon marks<cr>", "Marks menu" },
 		a = { "<cmd>lua ADD_HARPOON()<cr>", "Add mark" },
 		d = { "<cmd>lua REMOVE_HARPOON()<cr>", "Remove mark" },
 		j = { "<cmd>lua HARPOON_NEXT()<cr>", "Next mark" },
