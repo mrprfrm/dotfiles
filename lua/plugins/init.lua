@@ -17,6 +17,7 @@ end
 
 packer.startup(function(use)
 	use("wbthomason/packer.nvim")
+	use("nvim-lua/plenary.nvim")
 
 	-- Gui enhancements
 	use("nvim-lua/popup.nvim")
@@ -121,6 +122,12 @@ packer.startup(function(use)
 	})
 	use({
 		"nvim-telescope/telescope-live-grep-args.nvim",
+	})
+	use({
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		requires = { { "nvim-lua/plenary.nvim" } },
+		config = require_config("plugins.harpoon"),
 	})
 
 	-- Zen mode
