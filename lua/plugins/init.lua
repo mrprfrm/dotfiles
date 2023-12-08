@@ -148,7 +148,10 @@ packer.startup(function(use)
 	})
 	use("windwp/nvim-ts-autotag")
 	use("p00f/nvim-ts-rainbow")
-	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use({
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		config = require_config("plugins.ts-context-commentstring"),
+	})
 
 	-- Auto complete
 	use({
