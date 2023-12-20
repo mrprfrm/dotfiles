@@ -137,6 +137,7 @@ local mappings = {
 		d = { "<cmd>lua REMOVE_HARPOON()<cr>", "Remove mark" },
 		j = { "<cmd>lua HARPOON_NEXT()<cr>", "Next mark" },
 		k = { "<cmd>lua HARPOON_PREV()<cr>", "Prev mark" },
+		c = { "<cmd>lua HARPOON_CLEAR()<cr>", "Clear marks" },
 	},
 }
 
