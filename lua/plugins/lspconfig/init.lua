@@ -1,94 +1,67 @@
 local signs = {
-  { name = "DiagnosticSignError", text = "󰅙" },
-  { name = "DiagnosticSignWarn", text = "" },
-  { name = "DiagnosticSignHint", text = "󰌵" },
-  { name = "DiagnosticSignInfo", text = "" },
+	{ name = "DiagnosticSignError", text = "󰅙" },
+	{ name = "DiagnosticSignWarn", text = "" },
+	{ name = "DiagnosticSignHint", text = "󰌵" },
+	{ name = "DiagnosticSignInfo", text = "" },
 }
 
 for _, sign in ipairs(signs) do
-  vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+	vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 end
 
 vim.diagnostic.config({
-  virtual_text = false,
-  signs = { active = signs },
-  update_in_insert = true,
-  underline = true,
-  severity_sort = true,
-  float = {
-    focusable = false,
-    style = "minimal",
-    border = "rounded",
-    source = "always",
-    header = "",
-    prefix = "",
-  },
+	virtual_text = false,
+	signs = { active = signs },
+	update_in_insert = true,
+	underline = true,
+	severity_sort = true,
+	float = {
+		focusable = false,
+		style = "minimal",
+		border = "rounded",
+		source = "always",
+		header = "",
+		prefix = "",
+	},
 })
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
+	border = "rounded",
 })
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = "rounded",
+	border = "rounded",
 })
 
-local show_ws_folders = function()
-  print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+function SHOW_WS_FOLDERS()
+	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 end
 
-local show_diagnostics_line = function()
-  vim.diagnostic.open_float()
+function SHOW_DIAGNOSTICS_LINE()
+	vim.diagnostic.open_float()
 end
-
--- local format_options = function()
--- 	vim.lsp.buf.format({ async = true })
--- end
 
 local on_attach = function(client, bufnr)
-  if client.name == "html" or client.name == "tsserver" then
-    client.server_capabilities.documentFormattingProvider = false
-  end
-
-  local opts = { noremap = true, silent = true, buffer = bufnr }
-
-  -- Definition tools
-  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-  vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-  vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
-
-  -- Diagnostic tools
-  vim.keymap.set("n", "gl", show_diagnostics_line, otps)
-  vim.keymap.set("n", "gk", vim.lsp.buf.signature_help, otps)
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-
-  -- Workspace tools
-  vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
-  vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
-  vim.keymap.set("n", "<space>wl", show_ws_folders, opts)
-
-  -- Code tools
-  vim.keymap.set("n", "<space>r", vim.lsp.buf.rename, opts)
-  vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
+	if client.name == "html" or client.name == "tsserver" then
+		client.server_capabilities.documentFormattingProvider = false
+	end
 end
 
 local cmp_nvim_lsp_status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not cmp_nvim_lsp_status_ok then
-  return
+	return
 end
 
 local config = require("plugins.lspconfig.settings")
 for lsp, settings in pairs(config) do
-  local opts = {
-    on_attach = on_attach,
-    capabilities = cmp_nvim_lsp.default_capabilities(),
-  }
+	local opts = {}
 
-  for name, value in pairs(settings) do
-    opts[name] = value
-  end
+	for name, value in pairs(settings) do
+		opts[name] = value
+	end
 
-  require("lspconfig")[lsp].setup(opts)
+	opts.on_attach = on_attach
+	opts.capabilities = cmp_nvim_lsp.default_capabilities()
+
+	require("lspconfig")[lsp].setup(opts)
 end
