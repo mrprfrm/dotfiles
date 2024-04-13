@@ -42,7 +42,6 @@ packer.startup(function(use)
 		"stevearc/dressing.nvim",
 		config = require_config("plugins.dressing"),
 	})
-	use("RishabhRD/popfix")
 
 	-- Dashboard
 	use({
@@ -130,16 +129,6 @@ packer.startup(function(use)
 		config = require_config("plugins.harpoon"),
 	})
 
-	-- Zen mode
-	use({
-		"folke/zen-mode.nvim",
-		config = require_config("plugins.zenmode"),
-	})
-	use({
-		"folke/twilight.nvim",
-		config = require_config("plugins.twilight"),
-	})
-
 	-- Syntax analysys
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -198,11 +187,6 @@ packer.startup(function(use)
 	use({
 		"github/copilot.vim",
 		config = require_config("plugins.copilot"),
-	})
-	use({
-		"RishabhRD/nvim-lsputils",
-		requires = { "RishabhRD/popfix" },
-		config = require_config("plugins.nvim-lsputils"),
 	})
 
 	-- Debuging
