@@ -184,8 +184,12 @@ packer.startup(function(use)
 		config = require_config("plugins.mason-lspconfig"),
 	})
 	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		config = require_config("plugins.null-ls"),
+		"stevearc/conform.nvim",
+		config = require_config("plugins.conform"),
+	})
+	use({
+		"mfussenegger/nvim-lint",
+		config = require_config("plugins.nvim-lint"),
 	})
 	use({
 		"simrat39/symbols-outline.nvim",

@@ -12,6 +12,7 @@ treesitter.setup({
 	rainbow = { enable = true, extended_mode = true, max_file_lines = nil },
 	autotag = { enable = true },
 	indent = { enable = true },
+	folding = { enable = true },
 	ensure_installed = {
 		"html",
 		"css",

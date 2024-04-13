@@ -34,4 +34,8 @@ vim.opt.showtabline = 2
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+vim.wo.foldlevel = 99
+
 -- vim.opt.cmdheight = 2
