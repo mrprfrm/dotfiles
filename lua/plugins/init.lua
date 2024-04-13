@@ -65,12 +65,6 @@ packer.startup(function(use)
 	})
 	use("moll/vim-bbye")
 
-	-- Terminal
-	use({
-		"akinsho/toggleterm.nvim",
-		config = require_config("plugins.toggleterm"),
-	})
-
 	-- Formatters
 	use({
 		"windwp/nvim-autopairs",

@@ -74,8 +74,8 @@ telescope.setup({
 		},
 		mappings = {
 			i = {
-				["<C-n>"] = actions.cycle_history_next,
-				["<C-p>"] = actions.cycle_history_prev,
+				["<C-l>"] = actions.cycle_history_next,
+				["<C-h>"] = actions.cycle_history_prev,
 
 				["<C-j>"] = actions.move_selection_next,
 				["<C-k>"] = actions.move_selection_previous,
@@ -83,12 +83,9 @@ telescope.setup({
 				["<Up>"] = actions.move_selection_previous,
 				["<Down>"] = actions.move_selection_next,
 
-				["<C-c>"] = actions.close,
-
 				["<CR>"] = actions.select_default,
 				["<C-x>"] = actions.select_horizontal,
 				["<C-v>"] = actions.select_vertical,
-				["<C-t>"] = actions.select_tab,
 				["<C-s>"] = custom_actions.system_nvim_open,
 
 				["<C-u>"] = actions.preview_scrolling_up,
@@ -96,10 +93,12 @@ telescope.setup({
 
 				["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
 				["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+
 				["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
 				["<C-Q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-				["<C-l>"] = actions.complete_tag,
-				["<C-/>"] = actions.which_key,
+
+				["<C-\\>"] = actions.which_key,
+				["<C-c>"] = actions.delete_buffer,
 			},
 		},
 	},
