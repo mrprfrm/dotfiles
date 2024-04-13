@@ -3,6 +3,7 @@ local utils_status_ok, utils = pcall(require, "telescope.utils")
 local actions_status_ok, actions = pcall(require, "telescope.actions")
 local action_state_status_ok, action_state = pcall(require, "telescope.actions.state")
 local mt_status_ok, mt = pcall(require, "telescope.actions.mt")
+local builtin_ok, builtin = pcall(require, "telescope.builtin")
 if
 	not (
 		telescope_status_ok
@@ -11,6 +12,7 @@ if
 		and action_state_status_ok
 		and action_state_status_ok
 		and mt_status_ok
+		and builtin_ok
 	)
 then
 	return
@@ -40,6 +42,26 @@ local custom_actions = mt.transform_mod({
 		end
 	end,
 })
+
+function FIND_LSP_REFERENCES()
+	builtin.lsp_references({
+		layout_strategy = "vertical",
+		layout_config = {
+			width = 0.8,
+			height = 0.7,
+		},
+	})
+end
+
+function FIND_LSP_DEFINITIONS()
+	builtin.lsp_definitions({
+		layout_strategy = "vertical",
+		layout_config = {
+			width = 0.8,
+			height = 0.7,
+		},
+	})
+end
 
 telescope.setup({
 	defaults = {
