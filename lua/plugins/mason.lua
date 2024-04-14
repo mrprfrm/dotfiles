@@ -1,6 +1,6 @@
 local mason_ok, mason = pcall(require, "mason")
 if not mason_ok then
-  return
+	return
 end
 
 mason.setup({})
