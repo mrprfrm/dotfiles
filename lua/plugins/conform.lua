@@ -5,10 +5,16 @@ end
 
 conform.setup({
 	formatters_by_ft = {
+		css = { "prettier" },
+		html = { "prettier" },
+		javascript = { "prettier" },
+		javascriptreact = { "prettier" },
+		json = { "prettier" },
 		lua = { "stylua" },
 		python = { "isort", "black" },
-		javascript = { "prettier" },
 		rust = { "rustfmt" },
+		typescript = {},
+		typescriptreact = {},
 	},
 	format_on_save = {
 		timeout_ms = 500,

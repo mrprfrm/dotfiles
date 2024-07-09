@@ -44,6 +44,7 @@ end
 local on_attach = function(client, bufnr)
 	if client.name == "html" or client.name == "tsserver" then
 		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentRangeFormattingProvider = false
 	end
 end
 
