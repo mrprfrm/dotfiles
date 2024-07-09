@@ -14,7 +14,7 @@ local function get_current_buf_name()
 end
 
 function ADD_HARPOON()
-	harpoon:list():append()
+	harpoon:list():add()
 	print("Mark to " .. get_current_buf_name() .. " added")
 end
 

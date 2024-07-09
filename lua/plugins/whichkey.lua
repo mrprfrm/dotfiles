@@ -56,7 +56,6 @@ local mappings = {
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No highlight" },
-	["z"] = { "<cmd>ZenMode<CR>", "Zen" },
 	e = {
 		name = "Explorer",
 		e = { "<cmd>NvimTreeToggle<cr>", "Toggle explorer" },
@@ -91,16 +90,9 @@ local mappings = {
 	},
 	l = {
 		name = "LSP",
-		c = { "<cmd>lua COPILOT_TOGGLE()<CR>", "Copilot" },
 		d = { "<cmd>Telescope diagnostics<CR>", "Diagnostics" },
 		l = { "<cmd>SymbolsOutline<CR>", "Symbols" },
 		t = { "<cmd>TroubleToggle<CR>", "Toggle troubles" },
-	},
-	t = {
-		name = "Terminal",
-		f = { "<cmd>ToggleTerm direction=float<CR>", "Float" },
-		v = { "<cmd>ToggleTerm size=60 direction=vertical<CR>", "Vertical" },
-		x = { "<cmd>ToggleTerm size=10 direction=horizontal<CR>", "Horisontal" },
 	},
 	d = {
 		name = "Debugger",

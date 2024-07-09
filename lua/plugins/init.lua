@@ -70,14 +70,6 @@ packer.startup(function(use)
 		"windwp/nvim-autopairs",
 		config = require_config("plugins.autopairs"),
 	})
-	use({
-		"numToStr/Comment.nvim",
-		config = require_config("plugins.comment"),
-	})
-	use({
-		"anuvyklack/pretty-fold.nvim",
-		config = require_config("plugins.pretty-fold"),
-	})
 
 	-- Git
 	use({
@@ -129,11 +121,7 @@ packer.startup(function(use)
 		config = require_config("plugins.treesitter"),
 		run = ":TSUpdate",
 	})
-	use("windwp/nvim-ts-autotag")
-	use("p00f/nvim-ts-rainbow")
 	use({
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		config = require_config("plugins.ts-context-commentstring"),
 	})
 
 	-- Auto complete
