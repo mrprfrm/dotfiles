@@ -76,6 +76,9 @@ packer.startup(function(use)
 		"lewis6991/gitsigns.nvim",
 		config = require_config("plugins.gitsigns"),
 	})
+	use({
+		"tpope/vim-fugitive",
+	})
 
 	-- Navigation
 	-- investigate documentation and make some practice
@@ -122,6 +125,8 @@ packer.startup(function(use)
 		run = ":TSUpdate",
 	})
 	use({
+		"nvim-treesitter/nvim-treesitter-context",
+		config = require_config("plugins.treesitter-context"),
 	})
 
 	-- Auto complete

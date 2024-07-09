@@ -88,6 +88,10 @@ local mappings = {
 		u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Unstage hunk" },
 		d = { "<cmd>Gitsigns diffthis<cr>", "Diff" },
 	},
+	t = {
+		name = "Treesitter",
+		t = { "<cmd>TSContextToggle<CR>", "Context" },
+	},
 	l = {
 		name = "LSP",
 		d = { "<cmd>Telescope diagnostics<CR>", "Diagnostics" },
