@@ -175,19 +175,4 @@ packer.startup(function(use)
 		"github/copilot.vim",
 		config = require_config("plugins.copilot"),
 	})
-
-	-- Debuging
-	use({
-		"mfussenegger/nvim-dap",
-		config = require_config("plugins.dap"),
-	})
-	use({
-		"rcarriga/nvim-dap-ui",
-		requires = { "mfussenegger/nvim-dap" },
-		config = require_config("plugins.dapui"),
-	})
-	use({
-		"theHamsta/nvim-dap-virtual-text",
-		config = require_config("plugins.dap-virtualtext"),
-	})
 end)
