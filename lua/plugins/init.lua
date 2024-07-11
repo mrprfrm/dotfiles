@@ -81,7 +81,6 @@ packer.startup(function(use)
 	})
 
 	-- Navigation
-	-- investigate documentation and make some practice
 	use({
 		"kyazdani42/nvim-tree.lua",
 		requires = {
@@ -97,11 +96,6 @@ packer.startup(function(use)
 	use({
 		"ahmedkhalf/project.nvim",
 		config = require_config("plugins.project"),
-	})
-	use({
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-		config = require_config("plugins.trouble"),
 	})
 	use({
 		"folke/todo-comments.nvim",
@@ -162,10 +156,6 @@ packer.startup(function(use)
 	use({
 		"stevearc/conform.nvim",
 		config = require_config("plugins.conform"),
-	})
-	use({
-		"mfussenegger/nvim-lint",
-		config = require_config("plugins.nvim-lint"),
 	})
 	use({
 		"simrat39/symbols-outline.nvim",

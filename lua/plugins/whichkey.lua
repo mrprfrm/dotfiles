@@ -76,7 +76,6 @@ local mappings = {
 	},
 	g = {
 		name = "Git",
-		g = { "<cmd>lua LAZYGIT_TOGGLE()<CR>", "Lazygit" },
 		o = { "<cmd>Telescope git_status<CR>", "Local changes" },
 		b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
 		c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
@@ -84,7 +83,7 @@ local mappings = {
 		l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
 		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset hunk" },
 		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset buffer" },
-		s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage hunk" },
+		a = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Add hunk" },
 		u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Unstage hunk" },
 		d = { "<cmd>Gitsigns diffthis<cr>", "Diff" },
 	},
@@ -97,31 +96,6 @@ local mappings = {
 		d = { "<cmd>Telescope diagnostics<CR>", "Diagnostics" },
 		l = { "<cmd>SymbolsOutline<CR>", "Symbols" },
 		t = { "<cmd>TroubleToggle<CR>", "Toggle troubles" },
-	},
-	d = {
-		name = "Debugger",
-		-- TODO: Run debugger on dd keypress
-		-- TODO: Add autoattach on debugger start
-		-- a = { "<cmd>lua ATTACH_TO_DEBUGGER()<cr>", "Attach" },
-		-- d = { "<cmd>lua require'dapui'.toggle()<cr>", "Dap" },
-		-- Debugger continue global actions
-		c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-		q = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate" },
-		R = { "<cmd>lua require'dap'.repl.toggle({}, '10split')<cr>", "Repl" },
-		-- Debugger lines control actions
-		U = { "<cmd>lua require'dap'.up()<cr>", "Up" },
-		D = { "<cmd>lua require'dap'.down()<cr>", "Down" },
-		-- Debugger step control actions
-		n = { "<cmd>lua require'dap'.step_over()<cr>", "Step over" },
-		s = { "<cmd>lua require'dap'.step_into()<cr>", "Step into" },
-		r = { "<cmd>lua require'dap'.step_out()<cr>", "Step out" },
-		-- Debugger breakpoints actions
-		b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
-		B = {
-			"<cmd>lua require'dap'.toggle_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>",
-			"Conditional breakpoint",
-		},
-		C = { "<cmd>lua require'dap'.clear_breakpoints()<cr>", "Clear breakpoints" },
 	},
 	m = {
 		name = "Marks",
