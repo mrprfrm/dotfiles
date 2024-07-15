@@ -1,28 +1,19 @@
-local treesitter_status_ok, treesitter = pcall(require, "nvim-treesitter.configs")
-if not treesitter_status_ok then
-	return
-end
-
-treesitter.setup({
-	highlight = { enable = true },
-	indent = { enable = true },
-	ensure_installed = {
-		"bash",
-		"comment",
-		"dockerfile",
-		"css",
-		"html",
-		"json",
-		"javascript",
-		"lua",
-		"markdown",
-		"python",
-		"rust",
-		"scss",
-		"toml",
-		"tsx",
-		"typescript",
-		"vue",
-		"yaml",
+return {
+	{
+		"nvim-treesitter/nvim-treesitter",
+		event = { "BufReadPre", "BufNewFile" },
+		main = "nvim-treesitter.configs",
+		build = ":TSUpdateSync",
+		opts = {
+			auto_install = true,
+			highlight = { enable = true },
+			indent = { enable = true },
+		},
 	},
-})
+
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		event = { "BufReadPre", "BufNewFile" },
+		opts = {},
+	},
+}
