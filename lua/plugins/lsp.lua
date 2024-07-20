@@ -19,6 +19,7 @@ return {
 		opts = function()
 			local capabilities =
 				require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+			local lspconfig = require("lspconfig")
 
 			return {
 				ensure_installed = {
@@ -37,17 +38,41 @@ return {
 				},
 				handlers = {
 					function(server_name)
-						require("lspconfig")[server_name].setup({
+						lspconfig[server_name].setup({
 							capabilities,
 						})
 					end,
+
+					eslint = function()
+						lspconfig.eslint.setup({
+							capabilities,
+							settings = {
+								codeActionOnSave = { enable = true, mode = "all" },
+							},
+						})
+					end,
+
 					lua_ls = function()
-						require("lspconfig").lua_ls.setup({
+						lspconfig.lua_ls.setup({
 							capabilities,
 							settings = {
 								Lua = {
 									completion = { callSnippet = "Replace" },
 									diagnostics = { globals = { "vim" } },
+								},
+							},
+						})
+					end,
+
+					pyright = function()
+						lspconfig.pyright.setup({
+							capabilities,
+							root_dir = lspconfig.util.root_pattern("WORKSPACE", "pyproject.toml"),
+							settings = {
+								python = {
+									analysis = {
+										typeCheckingMode = "off",
+									},
 								},
 							},
 						})
@@ -64,7 +89,6 @@ return {
 			auto_close = true,
 			highlight_hovered_item = false,
 			autofold_depth = 1,
-			auto_preview = false,
 			symbols = {
 				File = { icon = "", hl = "TSURI" },
 				Module = { icon = "󰛡", hl = "TSNamespace" },

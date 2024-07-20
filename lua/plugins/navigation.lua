@@ -80,6 +80,29 @@ return {
 	},
 
 	{
+		"ahmedkhalf/project.nvim",
+		config = function()
+			local project = require("project_nvim")
+			project.setup({
+				active = true,
+				detection_methods = { "pattern" },
+				patterns = {
+					".git",
+					"_darcs",
+					".hg",
+					".bzr",
+					".svn",
+					"Makefile",
+					"package.json",
+					"pyproject.toml",
+					"alacritty.toml",
+					"tmux.conf",
+				},
+			})
+		end,
+	},
+
+	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {},
