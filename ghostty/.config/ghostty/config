@@ -1,0 +1,16 @@
+command = /bin/zsh
+font-size = 16
+font-family = Hack Nerd Font Mono
+theme=nordfox
+click-repeat-interval = 500
+auto-update-channel = stable
+window-height = 1117 
+window-width = 1728 
+palette = 16=#4d4a5c
+palette = 8=#80899B
+macos-titlebar-style = hidden
+macos-titlebar-style = hidden
+
+keybind = super+left=unbind
+keybind = super+right=unbind
+

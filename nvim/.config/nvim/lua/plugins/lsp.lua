@@ -29,12 +29,13 @@ return {
 					"html",
 					"jsonls",
 					"lua_ls",
+					"ruff",
 					"pyright",
-					"ruff_lsp",
 					"rust_analyzer",
 					"stylelint_lsp",
-					"tsserver",
+					"ts_ls",
 					"yamlls",
+					"clangd",
 				},
 				handlers = {
 					function(server_name)
@@ -71,6 +72,7 @@ return {
 							settings = {
 								python = {
 									analysis = {
+										diagnosticMode = "off",
 										typeCheckingMode = "off",
 									},
 								},

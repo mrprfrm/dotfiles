@@ -1,4 +1,11 @@
-/plugin
+# nvim files
+nvim/**/plugin
+nvim/**/tests
+
+# tmux files
+tmux/**/plugins
+
+# Operational system files
 .DS_Store
-/tests
+**/.DS_Store
 
