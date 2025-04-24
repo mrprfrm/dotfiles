@@ -16,6 +16,8 @@ return {
 				rust = { "rustfmt" },
 				typescript = {},
 				typescriptreact = {},
+				markdown = { "prettier" },
+				c = { "clang-format" },
 			},
 			format_on_save = {
 				timeout_ms = 500,
