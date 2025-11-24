@@ -39,9 +39,9 @@ keymap("Go to the previous diagnostic", "n", "[d", vim.diagnostic.goto_prev)
 keymap("Go to the next diagnostic", "n", "]d", vim.diagnostic.goto_next)
 
 local function find_lsp_references()
-	builtin.lsp_references({
-		layout_strategy = "vertical",
-	})
+  builtin.lsp_references({
+    layout_strategy = "vertical",
+  })
 end
 
 -- Definition tools
