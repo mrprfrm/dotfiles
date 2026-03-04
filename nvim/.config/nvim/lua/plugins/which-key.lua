@@ -104,7 +104,7 @@ return {
 			})
 
 			--- Treesitter ---
-			whichkey.add({ "<leader>tt", "<cmd>TSContextToggle<CR>", desc = "Toggle context" })
+			whichkey.add({ "<leader>tt", "<cmd>TSContext toggle<CR>", desc = "Toggle context" })
 
 			--- LSP ---
 			whichkey.add({
