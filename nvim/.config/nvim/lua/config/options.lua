@@ -1,5 +1,4 @@
 vim.opt.number = true
-vim.g.clipboard = "osc52"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.signcolumn = "yes"
 vim.opt.completeopt = { "menuone", "noselect" }
