@@ -1,5 +1,11 @@
 return {
 	{
+		"nvim-treesitter/nvim-treesitter-context",
+		opts = {
+			enable = false,
+		},
+	},
+	{
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPre", "BufNewFile" },
 		main = "nvim-treesitter.configs",
