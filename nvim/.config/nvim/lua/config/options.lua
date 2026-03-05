@@ -37,7 +37,8 @@ vim.opt.splitright = true
 -- diff options
 vim.opt.diffopt:append("vertical")
 
--- vim.opt.cmdheight = 2
+-- border options
+vim.o.winborder = "rounded"
 
 local signs = {
 	{ name = "DiagnosticSignError", text = "󰅙" },
