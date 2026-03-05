@@ -1,14 +1,5 @@
 return {
 	{
-		"ThePrimeagen/harpoon",
-		branch = "harpoon2",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		opts = {},
-	},
-
-	{
 		"ahmedkhalf/project.nvim",
 		config = function()
 			local project = require("project_nvim")
@@ -37,7 +28,6 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"ahmedkhalf/project.nvim",
-			"ThePrimeagen/harpoon",
 		},
 		config = function()
 			local actions = require("telescope.actions")
@@ -108,7 +98,6 @@ return {
 			end)
 
 			telescope.load_extension("projects")
-			telescope.load_extension("harpoon")
 		end,
 	},
 

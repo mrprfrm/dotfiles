@@ -3,15 +3,11 @@ return {
 		"folke/which-key.nvim",
 		dependencies = {
 			"moll/vim-bbye",
-			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope.nvim",
-			"ThePrimeagen/harpoon",
 			"nvim-treesitter/nvim-treesitter-context",
 		},
 		config = function()
 			local whichkey = require("which-key")
-			local path = require("plenary.path")
-			local harpoon = require("harpoon")
 
 			whichkey.setup({
 				icons = {
@@ -41,28 +37,6 @@ return {
 				},
 				layout = { align = "center" },
 			})
-
-			local function get_current_buf_name()
-				local root = vim.loop.cwd()
-				local current_buf = vim.api.nvim_get_current_buf()
-				local buf_name = vim.api.nvim_buf_get_name(current_buf)
-				return path:new(buf_name):make_relative(root)
-			end
-
-			local function add_harpoon()
-				harpoon:list():add()
-				print("Mark to " .. get_current_buf_name() .. " added")
-			end
-
-			local function remove_harpoon()
-				harpoon:list():remove()
-				print("Mark to " .. get_current_buf_name() .. " removed")
-			end
-
-			local function harpoon_clear()
-				harpoon:list():clear()
-				print("All marks removed")
-			end
 
 			whichkey.add({ "<leader>a", "<cmd>Alpha<CR>", desc = "Alpha" })
 			whichkey.add({ "<leader>w", "<cmd>w!<CR>", desc = "Save" })
@@ -112,16 +86,6 @@ return {
 				desc = "LSP",
 				{ "<leader>ld", "<cmd>Telescope diagnostics<CR>", desc = "Diagnostics" },
 				{ "<leader>ll", "<cmd>SymbolsOutline<CR>", desc = "Symbols" },
-			})
-
-			--- Marks ---
-			whichkey.add({
-				"<leader>mm",
-				desc = "Marks",
-				{ "<leader>mm", "<cmd>Telescope harpoon marks<CR>", desc = "Marks menu" },
-				{ "<leader>ma", add_harpoon, desc = "Add mark" },
-				{ "<leader>md", remove_harpoon, desc = "Remove mark" },
-				{ "<leader>mc", harpoon_clear, desc = "Clear marks" },
 			})
 		end,
 	},
