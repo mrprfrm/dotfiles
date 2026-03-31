@@ -1,5 +1,22 @@
 vim.opt.number = true
 vim.opt.clipboard = "unnamedplus"
+
+vim.g.clipboard = {
+	name = "osc52",
+	copy = {
+		["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+		["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+	},
+	paste = {
+		["+"] = function()
+			return { vim.fn.getreg("") }
+		end,
+		["*"] = function()
+			return { vim.fn.getreg("") }
+		end,
+	},
+}
+
 vim.opt.signcolumn = "yes"
 vim.opt.completeopt = { "menuone", "noselect" }
 -- vim.opt.pumheight = 10

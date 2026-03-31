@@ -26,3 +26,4 @@ macos-titlebar-style = hidden
 keybind = super+left=unbind
 keybind = super+right=unbind
 clipboard-paste-bracketed-safe = true
+shell-integration-features = ssh-env
