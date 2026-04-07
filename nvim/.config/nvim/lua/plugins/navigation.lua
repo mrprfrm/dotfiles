@@ -79,7 +79,7 @@ return {
 							["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
 
 							["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-							["<C-Q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+							["<C-e>"] = actions.send_selected_to_qflist + actions.open_qflist,
 
 							["<C-\\>"] = actions.which_key,
 							-- TODO: try to replace with bdelete

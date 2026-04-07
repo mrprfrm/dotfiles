@@ -35,19 +35,15 @@ keymap("Move selected text lower", "x", "K", ":move '<-2<CR>gv-gv")
 keymap("Some", "v", "p", '"_dP"')
 
 -- LSP config
-keymap("Go to the previous diagnostic", "n", "[d", vim.diagnostic.goto_prev)
-keymap("Go to the next diagnostic", "n", "]d", vim.diagnostic.goto_next)
-
-local function find_lsp_references()
-  builtin.lsp_references({
-    layout_strategy = "vertical",
-  })
-end
+keymap("Go to the previous diagnostic", "n", "[d", function()
+	vim.diagnostic.jump({ count = -1 })
+end)
+keymap("Go to the next diagnostic", "n", "]d", function()
+	vim.diagnostic.jump({ count = 1 })
+end)
 
 -- Definition tools
--- keymap("Show references", "n", "gr", FIND_LSP_REFERENCES) -- custom lsp references using telescope
 keymap("Go to the declaration", "n", "gD", vim.lsp.buf.declaration)
--- keymap("Go to the definition",  "n", "gd", FIND_LSP_DEFINITIONS)
 keymap("Go to the implementation", "n", "gi", vim.lsp.buf.implementation)
 keymap("Go to the type definition", "n", "gt", vim.lsp.buf.type_definition)
 -- Diagnostic tools
@@ -58,7 +54,3 @@ keymap("Show signature line", "n", "K", vim.lsp.buf.hover)
 -- Code tools
 keymap("Rename", "n", "<space>r", vim.lsp.buf.rename)
 keymap("Code actions", { "n", "v" }, "<space>ca", vim.lsp.buf.code_action)
-
--- TODO: investigate options
--- keymap('n', '<Space>e', vim.diagnostic.open_float)
--- keymap('n', '<Space>q', vim.diagnostic.setloclist)

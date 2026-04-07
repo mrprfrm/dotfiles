@@ -53,7 +53,7 @@ return {
 				show_buffer_close_icons = false,
 				modified_icon = "",
 				diagnostics = "nvim_lsp",
-				diagnostics_indicator = function(count, level, diagnostics_dict, context)
+				diagnostics_indicator = function(_, level)
 					if level:match("error") then
 						return ""
 					elseif level:match("warn") then

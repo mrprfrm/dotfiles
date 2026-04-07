@@ -1,26 +1,8 @@
 vim.opt.number = true
 vim.opt.clipboard = "unnamedplus"
 
-vim.g.clipboard = {
-	name = "osc52",
-	copy = {
-		["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-		["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-	},
-	paste = {
-		["+"] = function()
-			return { vim.fn.getreg("") }
-		end,
-		["*"] = function()
-			return { vim.fn.getreg("") }
-		end,
-	},
-}
-
 vim.opt.signcolumn = "yes"
 vim.opt.completeopt = { "menuone", "noselect" }
--- vim.opt.pumheight = 10
--- vim.opt.cursorline = true
 
 vim.opt.encoding = "utf-8"
 vim.opt.scrolloff = 8
@@ -78,12 +60,8 @@ vim.diagnostic.config({
 		focusable = false,
 		style = "minimal",
 		border = "rounded",
-		source = "always",
+		source = true,
 		header = "",
 		prefix = "",
 	},
 })
-
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })

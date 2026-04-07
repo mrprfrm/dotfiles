@@ -7,11 +7,15 @@ return {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-nvim-lsp",
+			"rafamadriz/friendly-snippets",
 			"L3MON4D3/LuaSnip",
 		},
 		opts = function()
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
+			require("luasnip.loaders.from_vscode").lazy_load({
+				include = { "python", "lua", "javascript", "typescript", "go", "rust" },
+			})
 
 			local kind_icons = {
 				Text = "󰊄",
@@ -59,7 +63,7 @@ return {
 							cmp.select_next_item()
 						elseif luasnip.expand_or_jumpable() then
 							luasnip.expand_or_jump()
-						elseif check_backspace then
+						elseif check_backspace() then
 							fallback()
 						else
 							fallback()
@@ -90,7 +94,6 @@ return {
 				},
 				sources = {
 					{ name = "nvim_lsp" },
-					{ name = "nvim_lua" },
 					{ name = "luasnip" },
 					{ name = "buffer" },
 					{ name = "path" },

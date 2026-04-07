@@ -1,4 +1,4 @@
-local group = vim.api.nvim_create_augroup("custom-config")
+local group = vim.api.nvim_create_augroup("custom-config", {})
 
 local function autocmd(desc, event, callback)
 	vim.api.nvim_create_autocmd(event, {
@@ -10,6 +10,10 @@ end
 
 autocmd("Setup LSP", "LspAttach", function(event)
 	local client = vim.lsp.get_client_by_id(event.client_id)
+
+	if client == nil then
+		return
+	end
 
 	if client.name == "eslint" then
 		client.server_capabilities.documentFormattingProvider = true
@@ -27,6 +31,11 @@ autocmd("Setup LSP", "LspAttach", function(event)
 
 	if client.name == "ruff" then
 		client.server_capabilities.hoverProvider = false
+		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentRangeFormattingProvider = false
+	end
+
+	if client.name == "ty" then
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentRangeFormattingProvider = false
 	end

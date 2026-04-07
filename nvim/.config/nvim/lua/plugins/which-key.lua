@@ -85,7 +85,7 @@ return {
 				"<leader>l",
 				desc = "LSP",
 				{ "<leader>ld", "<cmd>Telescope diagnostics<CR>", desc = "Diagnostics" },
-				{ "<leader>ll", "<cmd>SymbolsOutline<CR>", desc = "Symbols" },
+				{ "<leader>ll", "<cmd>Outline<CR>", desc = "Symbols" },
 			})
 		end,
 	},

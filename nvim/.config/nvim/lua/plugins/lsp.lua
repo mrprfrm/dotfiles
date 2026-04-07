@@ -1,5 +1,11 @@
 return {
 	{
+		"folke/lazydev.nvim",
+		ft = "lua",
+		opts = {},
+	},
+
+	{
 		"williamboman/mason.nvim",
 		opts = {
 			ui = {
@@ -29,7 +35,7 @@ return {
 					"html",
 					"jsonls",
 					"lua_ls",
-					"pyright",
+					"ty",
 					"ruff",
 					"rust_analyzer",
 					"stylelint_lsp",
@@ -59,24 +65,15 @@ return {
 							settings = {
 								Lua = {
 									completion = { callSnippet = "Replace" },
-									diagnostics = { globals = { "vim" } },
 								},
 							},
 						})
 					end,
 
-					pyright = function()
-						lspconfig.pyright.setup({
+					ty = function()
+						lspconfig.ty.setup({
 							capabilities,
-							root_dir = lspconfig.util.root_pattern("WORKSPACE", "pyproject.toml"),
-							settings = {
-								python = {
-									analysis = {
-										diagnosticMode = "off",
-										typeCheckingMode = "off",
-									},
-								},
-							},
+							root_dir = lspconfig.util.root_pattern("pyproject.toml", "WORKSPACE"),
 						})
 					end,
 				},
@@ -85,39 +82,47 @@ return {
 	},
 
 	{
-		"simrat39/symbols-outline.nvim",
+		"hedyhli/outline.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		opts = {
-			auto_close = true,
-			highlight_hovered_item = false,
-			autofold_depth = 1,
+			outline_window = {
+				auto_close = true,
+			},
+			outline_items = {
+				highlight_hovered_item = false,
+			},
+			symbol_folding = {
+				autofold_depth = 1,
+			},
 			symbols = {
-				File = { icon = "", hl = "TSURI" },
-				Module = { icon = "󰛡", hl = "TSNamespace" },
-				Namespace = { icon = "󰀁", hl = "TSNamespace" },
-				Package = { icon = "󰏗", hl = "TSNamespace" },
-				Class = { icon = "", hl = "TSType" },
-				Method = { icon = "m", hl = "TSMethod" },
-				Property = { icon = "󰆧", hl = "TSMethod" },
-				Field = { icon = "󰆧", hl = "TSField" },
-				Constructor = { icon = "", hl = "TSConstructor" },
-				Enum = { icon = "", hl = "TSType" },
-				Interface = { icon = "󰋙", hl = "TSType" },
-				Function = { icon = "󰊕", hl = "TSFunction" },
-				Variable = { icon = "󰜌", hl = "TSConstant" },
-				Constant = { icon = "󰜋", hl = "TSConstant" },
-				String = { icon = "󱀍", hl = "TSString" },
-				Number = { icon = "󰎠", hl = "TSNumber" },
-				Boolean = { icon = "", hl = "TSBoolean" },
-				Array = { icon = "󰅪", hl = "TSConstant" },
-				Object = { icon = "󰅩", hl = "TSType" },
-				Key = { icon = "󰌆", hl = "TSType" },
-				Null = { icon = "󱓼", hl = "TSType" },
-				EnumMember = { icon = "", hl = "TSField" },
-				Struct = { icon = "", hl = "TSType" },
-				Event = { icon = "", hl = "TSType" },
-				Operator = { icon = "󰆕", hl = "TSOperator" },
-				TypeParameter = { icon = "󰆦", hl = "TSParameter" },
+				icons = {
+					File = { icon = "", hl = "Identifier" },
+					Module = { icon = "󰛡", hl = "Include" },
+					Namespace = { icon = "󰀁", hl = "Include" },
+					Package = { icon = "󰏗", hl = "Include" },
+					Class = { icon = "", hl = "Type" },
+					Method = { icon = "m", hl = "Function" },
+					Property = { icon = "p", hl = "Identifier" },
+					Field = { icon = "f", hl = "Identifier" },
+					Constructor = { icon = "", hl = "Special" },
+					Enum = { icon = "", hl = "Type" },
+					Interface = { icon = "󰋙", hl = "Type" },
+					Function = { icon = "󰊕", hl = "Function" },
+					Variable = { icon = "󰜌", hl = "Constant" },
+					Constant = { icon = "󰜋", hl = "Constant" },
+					String = { icon = "󱀍", hl = "String" },
+					Number = { icon = "󰎠", hl = "Number" },
+					Boolean = { icon = "", hl = "Boolean" },
+					Array = { icon = "󰅪", hl = "Constant" },
+					Object = { icon = "󰅩", hl = "Type" },
+					Key = { icon = "󰌆", hl = "Type" },
+					Null = { icon = "󱓼", hl = "Type" },
+					EnumMember = { icon = "", hl = "Identifier" },
+					Struct = { icon = "", hl = "Structure" },
+					Event = { icon = "", hl = "Type" },
+					Operator = { icon = "󰆕", hl = "Identifier" },
+					TypeParameter = { icon = "󰆦", hl = "Identifier" },
+				},
 			},
 		},
 	},
