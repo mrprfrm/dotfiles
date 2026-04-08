@@ -1,0 +1,132 @@
+[app]
+overall = { bg = "#2e3440" }
+
+[mgr]
+cwd            = { fg = "#c7cdd9", bold = true }
+hovered        = { fg = "#2e3440", bg = "#a3be8c", bold = true }
+preview_hovered= { underline = true }
+find_keyword   = { fg = "#ebcb8b", bold = true }
+find_position  = { fg = "#7e8188", italic = true }
+symlink_target = { fg = "#88c0d0" }
+
+marker_copied  = { fg = "#a3be8c", bg = "#2e3440" }
+marker_cut     = { fg = "#bf616a", bg = "#2e3440" }
+marker_marked  = { fg = "#ebcb8b", bg = "#2e3440" }
+marker_selected= { fg = "#81a1c1", bg = "#2e3440" }
+
+count_copied   = { fg = "#2e3440", bg = "#a3be8c", bold = true }
+count_cut      = { fg = "#2e3440", bg = "#bf616a", bold = true }
+count_selected = { fg = "#2e3440", bg = "#81a1c1", bold = true }
+
+border_symbol  = "│"
+border_style   = { fg = "#5a657d" }
+
+[preview]
+tab_size        = 2
+max_width       = 600
+max_height      = 900
+cache_dir       = ""
+
+[indicator]
+parent  = { fg = "#cdcecf", bg = "#465064" }
+current = { fg = "#2e3440", bg = "#a3be8c" }
+preview = { fg = "#cdcecf", bg = "#465064" }
+padding = { open = "▐", close = "▌" }
+
+
+[tabs]
+active   = { fg = "#2e3440", bg = "#a3be8c", bold = true }
+inactive = { fg = "#7e8188", bg = "#2e3440" }
+
+[mode]
+normal_main = { fg = "#2e3440", bg = "#a3be8c", bold = true }
+normal_alt  = { fg = "#a3be8c", bg = "#2e3440" }
+
+select_main = { fg = "#2e3440", bg = "#81a1c1", bold = true }
+select_alt  = { fg = "#81a1c1", bg = "#2e3440" }
+
+unset_main  = { fg = "#2e3440", bg = "#bf616a", bold = true }
+unset_alt   = { fg = "#bf616a", bg = "#2e3440" }
+
+[status]
+overall        = { fg = "#7e8188", bg = "#2e3440" }
+sep_left       = { open = "█", close = "" }
+sep_right      = { open = "", close = "█" }
+
+perm_type      = { fg = "#81a1c1" }
+perm_read      = { fg = "#a3be8c" }
+perm_write     = { fg = "#ebcb8b" }
+perm_exec      = { fg = "#bf616a" }
+perm_sep       = { fg = "#5a657d" }
+
+progress_label = { fg = "#2e3440", bg = "#a3be8c", bold = true }
+progress_normal= { fg = "#a3be8c", bg = "#465064" }
+progress_error = { fg = "#bf616a", bg = "#465064" }
+
+[which]
+cols            = 3
+mask            = { bg = "#232831" }
+cand            = { fg = "#a3be8c", bold = true }
+rest            = { fg = "#c7cdd9" }
+desc            = { fg = "#7e8188" }
+separator       = "  →  "
+separator_style = { fg = "#5a657d" }
+
+[confirm]
+border = { fg = "#5a657d" }
+title  = { fg = "#ebcb8b", bold = true }
+body   = { fg = "#cdcecf" }
+list   = { fg = "#c7cdd9" }
+btn_yes = { fg = "#2e3440", bg = "#a3be8c", bold = true }
+btn_no  = { fg = "#2e3440", bg = "#bf616a", bold = true }
+btn_labels = [ "Yes", "No" ]
+
+[spot]
+border   = { fg = "#5a657d" }
+title    = { fg = "#a3be8c", bold = true }
+tbl_cell = { fg = "#cdcecf", bg = "#465064" }
+
+[notify]
+title_info  = { fg = "#81a1c1", bold = true }
+title_warn  = { fg = "#ebcb8b", bold = true }
+title_error = { fg = "#bf616a", bold = true }
+
+[pick]
+border   = { fg = "#5a657d" }
+active   = { fg = "#2e3440", bg = "#a3be8c", bold = true }
+inactive = { fg = "#cdcecf" }
+
+[input]
+border   = { fg = "#5a657d" }
+title    = { fg = "#a3be8c", bold = true }
+value    = { fg = "#cdcecf" }
+selected = { fg = "#2e3440", bg = "#4f6074" }
+
+[cmp]
+border       = { fg = "#5a657d" }
+active       = { fg = "#2e3440", bg = "#a3be8c", bold = true }
+inactive     = { fg = "#cdcecf" }
+
+[tasks]
+border  = { fg = "#5a657d" }
+title   = { fg = "#a3be8c", bold = true }
+hovered = { fg = "#2e3440", bg = "#a3be8c", bold = true }
+
+[help]
+on      = { fg = "#a3be8c", bold = true }
+run     = { fg = "#81a1c1" }
+desc    = { fg = "#cdcecf" }
+hovered = { fg = "#2e3440", bg = "#a3be8c", bold = true }
+footer  = { fg = "#7e8188", bg = "#2e3440" }
+
+[filetype]
+rules = [
+  { mime = "image/*", fg = "#ebcb8b" },
+  { mime = "{audio,video}/*", fg = "#b48ead" },
+  { mime = "application/{json,x-yaml}", fg = "#88c0d0" },
+  { mime = "inode/empty", fg = "#7e8188" },
+  { url = "*/", fg = "#81a1c1" },
+  { url = "*", is = "exec", fg = "#a3be8c" },
+  { url = "*", is = "orphan", fg = "#bf616a" },
+]
+
