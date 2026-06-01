@@ -20,6 +20,7 @@ return {
 				c = { "clang-format" },
 				terraform = {},
 				sql = { "pg_format" },
+				go = {},
 			},
 			formatters = {
 				pg_format = {

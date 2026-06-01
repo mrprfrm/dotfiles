@@ -44,6 +44,7 @@ return {
 					"clangd",
 					"terraform_ls",
 					"sqls",
+					"gopls",
 				},
 				handlers = {
 					function(server_name)
