@@ -42,6 +42,8 @@ return {
 					"ts_ls",
 					"yamlls",
 					"clangd",
+					"terraform_ls",
+					"sqls",
 				},
 				handlers = {
 					function(server_name)

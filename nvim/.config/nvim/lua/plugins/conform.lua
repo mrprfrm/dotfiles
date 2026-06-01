@@ -18,6 +18,22 @@ return {
 				typescriptreact = {},
 				markdown = { "prettier" },
 				c = { "clang-format" },
+				terraform = {},
+				sql = { "pg_format" },
+			},
+			formatters = {
+				pg_format = {
+					prepend_args = {
+						"--wrap-limit",
+						"80",
+						"--spaces",
+						"4",
+						"--keyword-case",
+						"2",
+						"--type-case",
+						"2",
+					},
+				},
 			},
 			format_on_save = {
 				timeout_ms = 500,
