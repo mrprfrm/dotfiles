@@ -1,3 +1,9 @@
+local function copy_file_path()
+	local path = vim.fn.expand("%")
+	vim.fn.setreg("+", path)
+	print("File path copied: " .. path)
+end
+
 return {
 	{
 		"folke/which-key.nvim",
@@ -86,6 +92,13 @@ return {
 				desc = "LSP",
 				{ "<leader>ld", "<cmd>Telescope diagnostics<CR>", desc = "Diagnostics" },
 				{ "<leader>ll", "<cmd>Outline<CR>", desc = "Symbols" },
+			})
+
+			--- Yank ---
+			whichkey.add({
+				"<leader>y",
+				desc = "Yank",
+				{ "<leader>yf", copy_file_path, desc = "Copy file path" },
 			})
 		end,
 	},
