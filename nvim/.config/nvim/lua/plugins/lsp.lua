@@ -22,65 +22,81 @@ return {
 			"williamboman/mason.nvim",
 			"b0o/schemastore.nvim",
 		},
-		opts = function()
+		opts = {
+			ensure_installed = {
+				"cssls",
+				"cssmodules_ls",
+				"eslint",
+				"html",
+				"jsonls",
+				"lua_ls",
+				"ty",
+				"ruff",
+				"rust_analyzer",
+				"stylelint_lsp",
+				"ts_ls",
+				"yamlls",
+				"clangd",
+				"terraformls",
+				"sqls",
+				"gopls",
+			},
+		},
+		config = function(_, opts)
 			local capabilities =
 				require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-			local lspconfig = require("lspconfig")
+			local util = require("lspconfig.util")
 
-			return {
-				ensure_installed = {
-					"cssls",
-					"cssmodules_ls",
-					"eslint",
-					"html",
-					"jsonls",
-					"lua_ls",
-					"ty",
-					"ruff",
-					"rust_analyzer",
-					"stylelint_lsp",
-					"ts_ls",
-					"yamlls",
-					"clangd",
-					"terraformls",
-					"sqls",
-					"gopls",
+			for _, server_name in ipairs(opts.ensure_installed) do
+				vim.lsp.config(server_name, {
+					capabilities = capabilities,
+				})
+			end
+
+			vim.lsp.config("eslint", {
+				capabilities = capabilities,
+				settings = {
+					codeActionOnSave = { enable = true, mode = "all" },
 				},
-				handlers = {
-					function(server_name)
-						lspconfig[server_name].setup({
-							capabilities,
-						})
-					end,
+			})
 
-					eslint = function()
-						lspconfig.eslint.setup({
-							capabilities,
-							settings = {
-								codeActionOnSave = { enable = true, mode = "all" },
-							},
-						})
-					end,
-
-					lua_ls = function()
-						lspconfig.lua_ls.setup({
-							capabilities,
-							settings = {
-								Lua = {
-									completion = { callSnippet = "Replace" },
-								},
-							},
-						})
-					end,
-
-					ty = function()
-						lspconfig.ty.setup({
-							capabilities,
-							root_dir = lspconfig.util.root_pattern("pyproject.toml", "WORKSPACE"),
-						})
-					end,
+			vim.lsp.config("lua_ls", {
+				capabilities = capabilities,
+				settings = {
+					Lua = {
+						completion = { callSnippet = "Replace" },
+					},
 				},
-			}
+			})
+
+			vim.lsp.config("yamlls", {
+				capabilities = capabilities,
+				settings = {
+					yaml = {
+						customTags = {
+							"!reset",
+							"!reset sequence",
+							"!override",
+							"!override sequence",
+						},
+						schemas = {
+							["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = {
+								"compose.yaml",
+								"compose.yml",
+								"docker-compose.yaml",
+								"docker-compose.yml",
+							},
+						},
+					},
+				},
+			})
+
+			vim.lsp.config("ty", {
+				capabilities = capabilities,
+				root_dir = util.root_pattern("pyproject.toml", "WORKSPACE"),
+			})
+
+			require("mason-lspconfig").setup(opts)
 		end,
 	},
 
