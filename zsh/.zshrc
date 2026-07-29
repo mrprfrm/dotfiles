@@ -28,3 +28,4 @@ export NVM_DIR="$HOME/.nvm"
 export MOAR="--style=nord"
 
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+export EDITOR="nvim"

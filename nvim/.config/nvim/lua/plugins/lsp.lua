@@ -42,7 +42,7 @@ return {
 					"ts_ls",
 					"yamlls",
 					"clangd",
-					"terraform_ls",
+					"terraformls",
 					"sqls",
 					"gopls",
 				},
@@ -133,6 +133,10 @@ return {
 	{
 		"github/copilot.vim",
 		event = { "BufReadPre", "BufNewFile" },
+		init = function()
+			vim.g.copilot_no_tab_map = true
+			vim.g.copilot_idle_delay = 500
+		end,
 		config = function()
 			vim.cmd([[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")]])
 			vim.cmd([[imap <silent><script><expr> <C-F> copilot#Next()]])

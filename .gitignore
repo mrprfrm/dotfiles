@@ -8,4 +8,4 @@ tmux/**/plugins
 # Operational system files
 .DS_Store
 **/.DS_Store
-
+.checkpoints/

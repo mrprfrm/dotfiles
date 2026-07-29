@@ -50,6 +50,19 @@ return {
 				return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 			end
 
+			local function has_autoimport(entry)
+				local edits = entry:get_completion_item().additionalTextEdits
+				return edits ~= nil and #edits > 0
+			end
+
+			local function entry_detail(item)
+				if not item.labelDetails then
+					return nil
+				end
+
+				return item.labelDetails.description or item.labelDetails.detail
+			end
+
 			return {
 				snippet = {
 					expand = function(args)
@@ -78,17 +91,22 @@ return {
 							fallback()
 						end
 					end, { "i", "s" }),
+					["<C-e>"] = cmp.mapping.complete(),
 				},
 				formatting = {
 					fields = { "kind", "abbr", "menu" },
 					format = function(entry, vim_item)
-						vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+						local item = entry:get_completion_item()
+						local detail = entry_detail(item)
+
+						vim_item.kind = kind_icons[vim_item.kind] or vim_item.kind
 						vim_item.menu = ({
-							nvim_lsp = "[LSP]",
+							nvim_lsp = detail and ("[LSP] " .. detail) or "[LSP]",
 							luasnip = "[Snippet]",
 							buffer = "[Buffer]",
 							path = "[Path]",
 						})[entry.source.name]
+
 						return vim_item
 					end,
 				},
@@ -97,6 +115,31 @@ return {
 					{ name = "luasnip" },
 					{ name = "buffer" },
 					{ name = "path" },
+				},
+				sorting = {
+					comparators = {
+						cmp.config.compare.offset,
+						cmp.config.compare.exact,
+						function(e1, e2) -- in-scope symbols before auto-imports; keeps both
+							local a1, a2 = has_autoimport(e1), has_autoimport(e2)
+							if a1 ~= a2 then
+								return a2
+							end
+						end,
+						cmp.config.compare.score,
+						cmp.config.compare.recently_used,
+						cmp.config.compare.locality,
+						cmp.config.compare.kind,
+						cmp.config.compare.sort_text,
+						cmp.config.compare.length,
+						cmp.config.compare.order,
+					},
+				},
+				performance = {
+					max_view_entries = 12,
+					debounce = 60,
+					throttle = 30,
+					fetching_timeout = 200,
 				},
 				window = {
 					completion = cmp.config.window.bordered(),

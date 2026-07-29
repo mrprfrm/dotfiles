@@ -1,3 +1,4 @@
+vim.o.exrc = true
 vim.opt.number = true
 vim.opt.clipboard = "unnamedplus"
 
