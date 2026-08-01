@@ -23,6 +23,7 @@ return {
 			"b0o/schemastore.nvim",
 		},
 		opts = {
+			automatic_enable = false,
 			ensure_installed = {
 				"cssls",
 				"cssmodules_ls",
@@ -45,7 +46,6 @@ return {
 		config = function(_, opts)
 			local capabilities =
 				require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-			local util = require("lspconfig.util")
 
 			for _, server_name in ipairs(opts.ensure_installed) do
 				vim.lsp.config(server_name, {
@@ -73,6 +73,7 @@ return {
 				capabilities = capabilities,
 				settings = {
 					yaml = {
+						format = { enable = true },
 						customTags = {
 							"!reset",
 							"!reset sequence",
@@ -91,12 +92,11 @@ return {
 				},
 			})
 
-			vim.lsp.config("ty", {
-				capabilities = capabilities,
-				root_dir = util.root_pattern("pyproject.toml", "WORKSPACE"),
-			})
-
 			require("mason-lspconfig").setup(opts)
+
+			for _, server_name in ipairs(opts.ensure_installed) do
+				vim.lsp.enable(server_name)
+			end
 		end,
 	},
 
